@@ -1,0 +1,98 @@
+@import "@/styles/mixins";
+@import "@/styles/colors";
+
+.wrapperContainer {
+  @include flexBox(center, center, row, null);
+  margin: 9rem 0;
+
+  .pageLayout {
+    @include widthHeight(40rem, null);
+    padding: 2rem;
+    @include flexBox(flex-start, flex-start, column, null);
+    background: $black-russian;
+    border-radius: 1rem;
+
+    @include respondTo("tablet") {
+      width: 100%;
+    }
+
+    @include respondTo("mobile") {
+      padding: 0.5rem;
+    }
+
+    .compLogoWrapper {
+      @include widthHeight(100%, 1.24225rem);
+      margin: 1.5rem 1.5rem;
+      cursor: pointer;
+    }
+
+    .contentWrapper {
+      @include flexBox(flex-start, flex-start, column, 2rem);
+      padding: 2rem 1.5rem;
+      .title {
+        color: $light-grey-50;
+        font-weight: 600;
+      }
+
+      .content {
+        color: $silver;
+      }
+    }
+
+    .subContentWrapper {
+      padding: 0rem 1rem;
+      width: 100%;
+
+      .buttonWrapper {
+        cursor: pointer;
+        @include widthHeight(null, auto);
+
+        .containerWrapper {
+          background-color: transparent;
+          border-radius: 1.5rem;
+          @include widthHeight(5.5rem, null);
+          @include positioning(relative, null, null, null, null);
+        }
+
+        .loaderWrapper {
+          @include widthHeight(1.75rem, 1.75rem);
+          @include positioning(null, null, null, null, 0);
+        }
+
+        .loaderWrapper::after {
+          @include widthHeight(0.75rem, 0.75rem);
+        }
+      }
+
+      .separator {
+        @include widthHeight(auto, 0.0625rem);
+        background: $shadow-gray;
+        margin: 2rem 0rem;
+      }
+
+      .customSeparator {
+        @include widthHeight(auto, 0.0625rem);
+        background: $shadow-gray;
+        margin-bottom: 2rem;
+      }
+
+      .socialMediaWrapper {
+        @include flexBox(center, space-between, row, 1.5rem);
+        padding: 1rem 0rem;
+        .companyText {
+          font-weight: 400;
+          width: 100%;
+        }
+
+        .iconWrapper {
+          @include flexBox(flex-start, flex-start, row, 1.06rem);
+
+          .iconLayout {
+            @include flexBox(center, center, row, null);
+            @include widthHeight(1.5rem, 1.5rem);
+          }
+        }
+      }
+    }
+  }
+}

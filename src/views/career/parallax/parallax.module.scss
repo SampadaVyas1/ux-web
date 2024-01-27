@@ -1,0 +1,33 @@
+@import "@/styles/mixins";
+@import "@/styles/colors";
+
+.ellipse {
+  left: calc(100vw - 11.6rem) !important;
+  top: -15% !important;
+  @include widthHeight(11rem, 17.125rem);
+
+  @include respondTo("mobile") {
+    left: calc(100vw - 4rem) !important;
+    @include widthHeight(5rem, 9rem);
+  }
+}
+
+.leftEllipse {
+  left: 0% !important;
+  top: -7% !important;
+  @include widthHeight(15rem, 22.06rem);
+
+  @include respondTo("mobile") {
+    display: none;
+  }
+}
+
+.bottomEllipse {
+  left: 0% !important;
+  top: 35% !important;
+  @include widthHeight(7.8rem, 18.5rem);
+
+  @include respondTo("mobile") {
+    display: none;
+  }
+}

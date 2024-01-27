@@ -1,0 +1,61 @@
+@import "@/styles/colors";
+@import "@/styles/mixins";
+
+.componentWrapper {
+  list-style-type: none;
+  @include flexBox(center, flex-start, row, 0.25rem);
+  @include widthHeight(null, 2.5rem);
+  @include positioning(relative);
+
+  @include respondTo("mobile") {
+    @include widthHeight(null, 0rem);
+  }
+
+  .crumb {
+    @include subtitle2;
+    color: $light-grey !important;
+    white-space: nowrap;
+    overflow: visible;
+    &:hover {
+      color: $white;
+    }
+  }
+
+  .activeCrumb {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: $white !important;
+  }
+
+  .crumb:first-child {
+    display: inline-flex;
+    @include respondTo('mobile'){
+      padding-top: 0.125rem;
+    }
+  }
+
+  .crumb:not(:first-child)::before {
+    content: "/";
+    margin-right: 0.25rem;
+    font-size: 1.25rem;
+    color: $light-grey;
+    display: inline-flex;
+    @include respondTo('mobile'){
+      padding-bottom: 0.125rem;
+    }
+  }
+
+  .customLink {
+    text-decoration: none;
+    color: inherit;
+    @include body3;
+    line-height: 150%;
+    font-weight: 400;
+
+    @include respondTo("mobile") {
+      @include subtitle2;
+      font-weight: 500;
+      letter-spacing: 0.01563rem;
+    }
+  }
+}

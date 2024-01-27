@@ -1,0 +1,160 @@
+@import "@/styles/colors";
+@import "@/styles/mixins";
+
+.tiltCardContainer {
+  cursor: pointer;
+  @include flexBox(flex-start, null, column, 1.5rem, null);
+  z-index: 8;
+  -webkit-tap-highlight-color: transparent;
+
+  .tiltBoxWrap {
+    position: relative;
+    cursor: pointer;
+    @include widthHeight(100%, fit-content);
+  }
+
+  .cardImage {
+    @include flexBox(center, center, null, null, null);
+    border-radius: 1.5rem;
+    @include widthHeight(100%, auto);
+    @include respondTo("tablet") {
+      border-radius: 1rem;
+    }
+  }
+
+  .cursor {
+    position: fixed;
+    z-index: 9;
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%) perspective(1500);
+
+    .cursorCircle {
+      @include flexBox(center, center, column, 0.12rem, null);
+      border-radius: 50%;
+      position: absolute;
+      @include widthHeight(4.25rem, 4.25rem);
+      transform: translate(-50%, -50%);
+      background-color: $light-white-100;
+      @include border($light-white-50, null, solid);
+      backdrop-filter: blur(0.5rem);
+    }
+
+    .cursorText {
+      @include flexBox(center, center, null, null, null);
+      line-height: 1.3rem !important;
+      @include positioning(absolute, 0, 0, 0, 0);
+    }
+  }
+
+  .cursorPointer {
+    pointer-events: all;
+  }
+}
+
+.customGradient {
+  margin: 0.3rem;
+  background-color: $black;
+  position: relative;
+  @include border(transparent, 0.3rem, solid);
+}
+
+.gradientEffect {
+  border-radius: 1.5rem !important;
+  @include respondTo("tablet") {
+    border-radius: 1rem !important;
+  }
+  @include respondTo("mobile") {
+    border-radius: 1rem !important;
+  }
+  background-color: transparent;
+  position: relative;
+  @include border(transparent, 0.3rem, solid);
+
+  box-sizing: border-box;
+  background-clip: padding-box;
+  border-radius: 5rem;
+  --gradient-colors: none;
+
+  .imageContainer {
+    position: relative;
+  }
+
+  .customButton {
+    @include positioning(absolute, null, -2.25rem, -1.56rem, null);
+  }
+
+  .imageText {
+    @include positioning(absolute, null, null, 1.5rem, 1.5rem);
+
+    @include respondTo("tablet") {
+      @include body3;
+      @include positioning(absolute, null, null, 1rem, 1rem);
+    }
+
+    @include respondTo("mobile") {
+      @include heading4;
+      line-height: 2.25rem;
+      @include positioning(absolute, null, null, 0.5rem, 1rem);
+    }
+  }
+}
+
+.gradientEffect[data-corner]:not([data-corner=""])::before {
+  content: "";
+  @include positioning(absolute, 0, 0, 0, 0);
+  z-index: 0;
+  margin: -0.3rem;
+  border-radius: 1.5rem;
+  @include respondTo("tablet") {
+    border-radius: 1rem;
+  }
+  @include respondTo("mobile") {
+    border-radius: 1rem;
+  }
+
+  background: var(--gradient-colors);
+}
+
+.gradientEffect[data-corner="top-left"] {
+  @include gradientEffect(to right);
+}
+
+.gradientEffect[data-corner="top-right"] {
+  @include gradientEffect(to left);
+}
+
+.gradientEffect[data-corner="bottom-right"] {
+  @include gradientEffect(to left);
+}
+
+.gradientEffect[data-corner="bottom-left"] {
+  @include gradientEffect(to right);
+}
+
+.gradientEffect[data-corner="left"] {
+  @include gradientEffect(to right);
+}
+
+.gradientEffect[data-corner="right"] {
+  @include gradientEffect(to left);
+}
+
+.gradientEffect[data-corner="bottom"] {
+  @include gradientEffect(to top);
+}
+
+.gradientEffect[data-corner="top"] {
+  @include gradientEffect(to bottom);
+}
+
+.gradientEffect[data-corner="center"] {
+  border-radius: 1.6rem !important;
+  @include respondTo("tablet") {
+    border-radius: 1.35rem !important;
+  }
+  @include respondTo("mobile") {
+    border-radius: 1rem !important;
+  }
+  @include border($royal-blue, 0.35rem, solid);
+}

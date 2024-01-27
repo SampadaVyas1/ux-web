@@ -1,0 +1,95 @@
+@import "@/styles/colors";
+@import "@/styles/mixins";
+
+.cardContainer {
+  padding: 1.5rem;
+  @include widthHeight(100%, auto);
+  border-radius: 1.5rem;
+  @include border($light-gray-100, 0.125rem, solid);
+  background: $primary;
+  backdrop-filter: blur(0.125rem);
+  overflow: hidden;
+  @include respondTo("tablet") {
+    border-radius: 1rem;
+  }
+  @include positioning(relative, null, null, null, null);
+  .cardContent {
+    .count {
+      color: $dark-blue;
+      @include largeText;
+      @include positioning(absolute, 0, null, null, null);
+      z-index: 1;
+    }
+
+    .contentDetails {
+      @include flexBox(null, null, column, 1.5rem, null);
+      margin-top: 4rem;
+      background: $primary;
+      position: relative;
+      z-index: 2;
+      @include widthHeight(100%, auto);
+
+      .title {
+        color: $white;
+        font-weight: 500 !important;
+        word-wrap: break-word;
+        @include widthHeight(100%, auto);
+        @include respondTo("tablet") {
+          @include heading4;
+          line-height: 2.25rem;
+        }
+        @include respondTo("mobile") {
+          @include subtitle6;
+          font-size: $font-size-32;
+          line-height: 2.4rem;
+        }
+      }
+      .bulletPoints {
+        @include flexBox(null, null, column, 0.75rem, null);
+        .bulletPoint {
+          @include flexBox(center, null, null, 0.5rem, null);
+          .bulletImage {
+            @include widthHeight(1.5rem, 1.5rem);
+            @include flexBox(center, center, null, null, null);
+          }
+          .keyPoints {
+            color: $silver;
+            line-height: 1.87rem !important;
+            @include respondTo("tablet") {
+              @include subtitle4;
+              line-height: 1.5rem !important;
+            }
+            @include respondTo("mobile") {
+              @include subtitle4;
+              line-height: 1.5rem !important;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.bulletGray {
+  animation: fadeInAnimation linear 2s;
+
+  @keyframes fadeInAnimation {
+    0% {
+      opacity: 0.4;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+}
+.bulletWhite {
+  animation: fadeInAnimation linear 2s;
+
+  @keyframes fadeInAnimation {
+    0% {
+      opacity: 0.9;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+}

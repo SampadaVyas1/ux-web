@@ -1,0 +1,288 @@
+@import "@/styles/colors";
+@import "@/styles/mixins";
+
+@mixin cardStyling($height, $border-radius: 1.5rem, $position: relative) {
+  height: $height;
+  border-radius: $border-radius;
+  position: $position;
+  @include respondTo("tablet") {
+    border-radius: 1rem;
+  }
+  @include respondTo("mobile") {
+    border-radius: 1.5rem;
+  }
+}
+
+.colorTypographyContainer {
+  padding: 8rem 0;
+  @include respondTo("tablet") {
+    padding: 4rem 0;
+  }
+
+  @include respondTo("mobile") {
+    padding: 4rem 0;
+  }
+  @include flexBox(null, null, column, 4rem, null);
+  @include respondTo("tablet") {
+    @include flexBox(null, null, column, 2.5rem, null);
+  }
+  @include respondTo("mobile") {
+    @include flexBox(null, null, column, 1.5rem, null);
+  }
+  .wrapperContainer {
+    @include heading5;
+    line-height: 120%;
+    letter-spacing: 0.03rem;
+    @include respondTo("tablet") {
+      @include heading3;
+    }
+  }
+}
+.cardWrapper {
+  gap: 1rem;
+  .typographyStylingCard {
+    height: 12.75rem;
+    padding: 1.5rem;
+    border-radius: 1.5rem;
+    @include border($light-gray-100, 0.063rem, solid);
+    background: $dark-gray-100;
+    @include flexBox(flex-start, center, column, 1.5rem, null);
+    @include respondTo("tablet") {
+      border-radius: 1rem;
+      @include flexBox(flex-start, center, column, 1.5rem, null);
+    }
+    @include respondTo("mobile") {
+      @include flexBox(flex-start, center, column, 1rem, null);
+      height: auto;
+      border-radius: 1.5rem;
+    }
+    .fontFamilyTitle {
+      color: $light-grey;
+      @include respondTo("tablet") {
+        line-height: 1.5rem !important;
+      }
+      @include respondTo("mobile") {
+        line-height: 2.25rem;
+      }
+    }
+    .typographyDetails {
+      @include flexBox(flex-start, flex-start, column, 0.5rem, null);
+      .fontFamilyVariant {
+        font-weight: 500;
+        @include respondTo("tablet") {
+          @include body3;
+          line-height: 1.5rem !important;
+          font-weight: 500 !important;
+        }
+        @include respondTo("mobile") {
+          font-weight: 400 !important;
+          @include heading4;
+        }
+      }
+      .fontWeightDetails {
+        color: $light-grey;
+        @include respondTo("tablet") {
+          line-height: 1.5rem !important;
+        }
+        @include respondTo("mobile") {
+          font-weight: 400 !important;
+          line-height: 1.5rem !important;
+        }
+      }
+    }
+  }
+  .colorItemOne {
+    @include cardStyling(12.75rem);
+    &.item-background-color {
+      background-color: inherit;
+    }
+
+    &.item-background-asparagus {
+      @extend .item-background-color;
+      background-color: $asparagus;
+    }
+
+    &.item-background-jungle-green {
+      @extend .item-background-color;
+      background-color: $jungle-green;
+    }
+
+    &.item-background-forest-green {
+      @extend .item-background-color;
+      background-color: $forest-green;
+    }
+
+    &.item-background-caribbean-green {
+      @extend .item-background-color;
+      background-color: $caribbean-green;
+    }
+
+    &.item-background-indigo-dye {
+      @extend .item-background-color;
+      background-color: $indigo-dye;
+    }
+
+    &.item-background-emerald-green {
+      @extend .item-background-color;
+      background-color: $emerald-green;
+    }
+
+    @include respondTo("mobile") {
+      height: 5.938rem;
+      grid-column-start: 3;
+      grid-column-end: 5;
+    }
+  }
+
+  .colorItemTwo {
+    @include cardStyling(25.625rem);
+    grid-row-end: span 2;
+
+    &.item-background-color {
+      background-color: inherit;
+    }
+
+    &.item-background-slate-grey {
+      @extend .item-background-color;
+      background-color: $slate-grey;
+    }
+
+    &.item-background-pale-pink {
+      @extend .item-background-color;
+      color: $navy-blue;
+      background-color: $pale-pink;
+    }
+
+    &.item-background-medium-electric-blue {
+      @extend .item-background-color;
+      background-color: $medium-electric-blue;
+    }
+
+    &.item-background-neon-blue {
+      @extend .item-background-color;
+      background-color: $neon-blue;
+    }
+
+    &.item-background-alice-blue {
+      @extend .item-background-color;
+      color: $navy-blue;
+      background-color: $alice-blue;
+    }
+
+    &.item-background-sandy-brown {
+      @extend .item-background-color;
+      background-color: $sandy-brown;
+    }
+
+    &.item-background-alice-white {
+      @extend .item-background-color;
+      color: $navy-blue;
+      background-color: $alice-white;
+    }
+
+    @include respondTo("mobile") {
+      height: 5.938rem;
+    }
+  }
+
+  .colorItemThree {
+    @include cardStyling(12rem);
+
+    &.item-background-color {
+      background-color: inherit;
+    }
+
+    &.item-background-cerulean {
+      @extend .item-background-color;
+      background-color: $cerulean;
+    }
+
+    &.item-background-pastel-red {
+      @extend .item-background-color;
+      background-color: $pastel-red;
+    }
+
+    &.item-background-gamboge {
+      @extend .item-background-color;
+      background-color: $gamboge;
+    }
+
+    &.item-background-jasper-red {
+      @extend .item-background-color;
+      background-color: $jasper-red;
+    }
+
+    &.item-background-pale-aqua {
+      @extend .item-background-color;
+      color: $navy-blue;
+      background-color: $pale-aqua;
+    }
+
+    &.item-background-anti-flash-white {
+      @extend .item-background-color;
+      color: $navy-blue;
+      background-color: $anti-flash-white;
+    }
+
+    @include respondTo("mobile") {
+      height: 12.875rem;
+      grid-column-start: 1;
+      grid-column-end: 3;
+      grid-row-start: 2;
+      grid-row-end: 4;
+    }
+  }
+  .colorItemFour {
+    @include cardStyling(11.938rem);
+
+    &.item-background-color {
+      background-color: inherit;
+    }
+
+    &.item-background-alice-blue {
+      @extend .item-background-color;
+      color: $navy-blue;
+      background-color: $alice-blue;
+    }
+
+    &.item-background-zinc {
+      @extend .item-background-color;
+      background-color: $zinc;
+    }
+
+    &.item-background-cadmium-red {
+      @extend .item-background-color;
+      background-color: $cadmium-red;
+    }
+
+    &.item-background-purple-navy {
+      @extend .item-background-color;
+      background-color: $purple-navy;
+    }
+
+    &.item-background-blanced-almond {
+      @extend .item-background-color;
+      color: $navy-blue;
+      background-color: $blanced-almond;
+    }
+
+    &.item-background-lapis-lazuli {
+      @extend .item-background-color;
+      background-color: $lapis-lazuli;
+    }
+
+    @include respondTo("mobile") {
+      height: 5.938rem;
+      grid-column-start: 3;
+      grid-column-end: 5;
+      grid-row-start: 3;
+    }
+  }
+  .colorNameOnCard {
+    @include positioning(absolute, null, 1rem, 2rem, 1rem);
+    @include respondTo("mobile") {
+      @include body3;
+      @include positioning(absolute, null, 1rem, 1rem, 1rem);
+    }
+  }
+}

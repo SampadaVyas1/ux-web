@@ -1,0 +1,63 @@
+@import "@/styles/colors.scss";
+@import "@/styles/mixins.scss";
+
+.workPageWrapper {
+  .customClassHeroSection {
+    @include respondTo("mobile") {
+      padding-bottom: 0rem;
+    }
+  }
+
+  .ourWorkContainer {
+    background: $dark-gray-100;
+    padding: 8rem 0rem;
+
+    @include respondTo("tablet") {
+      padding: 4rem 0rem;
+    }
+
+    @include respondTo("mobile") {
+      padding: 4rem 0rem;
+    }
+  }
+
+  .formContainer {
+    background: $rgba-background-light-1;
+    padding: 8rem 0;
+    @include respondTo("tablet") {
+      padding: 8rem 0rem 7.3rem;
+    }
+    @include respondTo("mobile") {
+      padding: 0rem 0rem 4rem;
+    }
+  }
+  .formContainer > :first-child {
+    @include respondTo("mobile") {
+      padding: 0;
+    }
+  }
+}
+
+.imageContainer {
+  @include widthHeight(100%, 100%);
+  &::before {
+    content: "";
+    pointer-events: none;
+    @include positioning(absolute, 0, null, null, null);
+    @include widthHeight(100%, 100%);
+    @include backgroundOpacity($black-russian, "b3");
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 1.35rem;
+    @include respondTo("tablet") {
+      border-radius: 1rem;
+    }
+    @include respondTo("mobile") {
+      @include widthHeight(150%, 100%);
+    }
+  }
+
+  &:hover::before {
+    opacity: 1;
+  }
+}

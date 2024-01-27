@@ -1,0 +1,26 @@
+@import "@/styles/mixins";
+@import "@/styles/colors";
+
+.animatingText {
+  display: inline-block;
+  opacity: 0;
+  animation: anim-lineUp 0.7s linear;
+  animation-fill-mode: forwards;
+}
+
+@keyframes anim-lineUp {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  60% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+.wordSpacing {
+  margin-right: 0.5rem;
+}

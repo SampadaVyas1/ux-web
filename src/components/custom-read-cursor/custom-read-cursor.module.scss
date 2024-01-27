@@ -1,0 +1,28 @@
+@import "@/styles/colors";
+@import "@/styles/mixins";
+
+.cursor {
+  @include positioning(fixed, null, null, null, null);
+  z-index: 20;
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  opacity: 1;
+
+  .cursorCircle {
+    @include flexBox(center, center, column, 0.12rem, null);
+    border-radius: 50%;
+    @include positioning(absolute, null, null, null, null);
+    @include widthHeight(4.25rem, 4.25rem);
+    transform: translate(-50%, -50%);
+    background-color: $light-white-100;
+    @include border($light-white-50, null, solid);
+    backdrop-filter: blur(0.5rem);
+  }
+
+  .cursorText {
+    @include flexBox(center, center, null, null, null);
+    line-height: 1.3rem !important;
+    @include positioning(absolute, 0, 0, 0, 0);
+  }
+}

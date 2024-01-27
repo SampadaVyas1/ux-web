@@ -1,0 +1,57 @@
+@import "@/styles/colors.scss";
+@import "@/styles/mixins.scss";
+
+.noOpeningWrapper {
+  @include flexBox(flex-start, flex-start, column, 4rem);
+
+  @include respondTo("tablet") {
+    gap: 2.5rem;
+  }
+
+  @include respondTo("mobile") {
+    gap: 2.5rem;
+  }
+
+  .noOpeningContent {
+    @include flexBox(flex-start, flex-start, column, 2rem);
+
+    @include respondTo("tablet") {
+      gap: 1.5rem;
+    }
+
+    @include respondTo("mobile") {
+      gap: 1.5rem;
+    }
+
+    .title {
+      @include respondTo("tablet") {
+        @include heading3;
+      }
+    }
+    .jobDescription {
+      width: 49rem;
+      @include respondTo("mobile") {
+        width: 100%;
+      }
+
+      @include respondTo("tablet") {
+        width: 100%;
+      }
+    }
+    .content {
+      color: $light-grey-100;
+      line-height: 150%;
+
+      @include respondTo("mobile") {
+        width: 100%;
+      }
+
+      @include respondTo("tablet") {
+        width: 100%;
+      }
+    }
+  }
+  .customBtn {
+    @include widthHeight(auto, 2.25rem);
+  }
+}

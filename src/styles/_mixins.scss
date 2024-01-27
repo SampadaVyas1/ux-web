@@ -1,0 +1,314 @@
+@import "./variables";
+
+@mixin respondTo($breakpoint) {
+  @if $breakpoint== "extraSmall" {
+    @media (max-width: $ratio-xxxs) {
+      @content;
+    }
+  } @else if $breakpoint == "small" {
+    @media (max-width: $ratio-xxs) {
+      @content;
+    }
+  } @else if $breakpoint == "mobile" {
+    @media (max-width: $ratio-xs) {
+      @content;
+    }
+  } @else if $breakpoint == "tablet" {
+    @media (max-width: $ratio-md) {
+      @content;
+    }
+  } @else if $breakpoint == "desktop" {
+    @media (max-width: $ratio-xl) {
+      @content;
+    }
+  }
+}
+
+@mixin flexBox(
+  $alignItems: null,
+  $justifyContent: null,
+  $flexDirection: null,
+  $gap: null,
+  $flexWrap: null
+) {
+  display: $display-flex;
+  align-items: $alignItems;
+  justify-content: $justifyContent;
+  flex-direction: $flexDirection;
+  gap: $gap;
+  flex-wrap: $flexWrap;
+}
+
+@mixin widthHeight($width: auto, $height: auto) {
+  width: $width;
+  height: $height;
+}
+
+@mixin gridProps(
+  $colum-num: null,
+  $row-num: null,
+  $column-gap: null,
+  $row-gap: null,
+  $rows: null,
+  $columns: null
+) {
+  display: grid;
+
+  @if $colum-num !=null {
+    grid-template-columns: $colum-num;
+  }
+
+  @if $row-num !=null {
+    grid-template-rows: $row-num;
+  }
+
+  @if $column-gap !=null {
+    column-gap: $column-gap;
+  }
+
+  @if $row-gap !=null {
+    row-gap: $row-gap;
+  }
+
+  @if $rows !=null {
+    grid-row: $rows;
+  }
+
+  @if $columns !=null {
+    grid-column: $columns;
+  }
+}
+
+@mixin border($color: $blue-grey-700, $width: 1px, $style: solid) {
+  border-color: $color;
+  border-width: $width;
+  border-style: $style;
+}
+
+@mixin heading1 {
+  font-family: $figtree-light !important;
+  font-size: 4rem;
+  font-weight: 300;
+}
+
+@mixin heading2 {
+  font-family: $figtree-light !important;
+  font-size: $font-size-72;
+  font-weight: 300;
+}
+
+@mixin heading3 {
+  font-family: $figtree-light !important;
+  font-size: $font-size-48;
+  font-weight: 300;
+}
+
+@mixin heading4 {
+  font-family: $figtree-light !important;
+  font-size: $font-size-24;
+  font-weight: 400;
+}
+
+@mixin heading6 {
+  font-family: $figtree-light;
+  font-size: $font-size-32;
+  font-weight: 300;
+}
+
+@mixin body1 {
+  font-family: $figtree-regular;
+  font-size: 1rem;
+  font-weight: 300;
+}
+
+@mixin body2 {
+  font-family: $figtree-light;
+  font-size: $font-size-40;
+  font-weight: $weight-300;
+}
+
+@mixin subtitle1 {
+  font-family: $figtree-regular;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 140%;
+}
+
+@mixin subtitle2 {
+  font-family: $figtree-regular;
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 150%;
+}
+
+@mixin linearGradient($opacity: null, $rgba: null, $gradient: null) {
+  opacity: $opacity;
+  background: linear-gradient(360deg, $black-russian 0%, $rgba 63.87%);
+}
+
+@mixin subtitle3 {
+  font-family: $figtree-regular;
+  font-size: $font-size-14;
+  font-weight: $weight-300;
+  line-height: 150%;
+}
+
+@mixin body3($important: false) {
+  font-family: $figtree-light;
+  font-size: $font-size-20;
+  font-weight: $weight-300;
+  @if $important {
+    font-family: $figtree-light !important;
+    font-size: $font-size-20 !important;
+    font-weight: $weight-300 !important;
+  }
+}
+
+@mixin subtitle4 {
+  font-family: $figtree-regular;
+  font-size: $font-size-16;
+  font-weight: $weight-400;
+  line-height: 150%;
+}
+
+@mixin subtitle5 {
+  font-family: $figtree-regular;
+  font-size: $font-size-14;
+  font-weight: 700;
+  letter-spacing: $letter-spacing-small;
+}
+
+@mixin positioning(
+  $position,
+  $top: null,
+  $right: null,
+  $bottom: null,
+  $left: null
+) {
+  position: $position;
+
+  @if $top !=null {
+    top: $top;
+  }
+
+  @if $right !=null {
+    right: $right;
+  }
+
+  @if $bottom !=null {
+    bottom: $bottom;
+  }
+
+  @if $left !=null {
+    left: $left;
+  }
+}
+
+@mixin transformSlide(
+  $YTransform,
+  $ZTransform,
+  $XTransform,
+  $RotateY,
+  $Rotate
+) {
+  transform: translateY($YTransform) translateZ($ZTransform)
+    translateX($XTransform) rotateY($RotateY) rotate($Rotate);
+}
+
+@mixin largeText {
+  font-size: 7.5rem;
+  font-weight: $weight-300;
+  line-height: 120%;
+}
+
+@mixin gradientEffect($direction) {
+  --gradient-colors: linear-gradient(
+    #{$direction},
+    #{$black-russian},
+    #{$royal-blue}
+  );
+}
+
+@mixin gradient(
+  $gradient-type: "linear",
+  $opacity,
+  $position-at,
+  $position-to,
+  $color-stops...
+) {
+  opacity: $opacity;
+
+  @if $gradient-type == "linear" {
+    background: linear-gradient($position-at, $color-stops);
+  }
+
+  @if $gradient-type == "radial" {
+    background: radial-gradient(
+      #{$position-to} at #{$position-at},
+      $color-stops
+    );
+  }
+}
+
+@mixin inputText($color: $grey-100) {
+  @include subtitle2;
+  color: $color;
+  font-size: 1rem;
+}
+
+@mixin heading5 {
+  font-family: $figtree-regular;
+  font-size: $font-size-64;
+  font-weight: 300;
+}
+
+@mixin backgroundOpacity($color, $opacity: 00) {
+  background: #{$color}#{$opacity};
+}
+
+@mixin maxWidthHeight($max-width, $height) {
+  max-width: $max-width;
+  height: $height;
+}
+
+@mixin gradientWithImage(
+  $imageUrl,
+  $gradient-type: "linear",
+  $opacity,
+  $position-at,
+  $position-to,
+  $color-stops...
+) {
+  opacity: $opacity;
+
+  @if $gradient-type == "linear" {
+    background:
+      linear-gradient($position-at, $color-stops),
+      $imageUrl center center/cover no-repeat;
+  }
+
+  @if $gradient-type == "radial" {
+    background:
+      radial-gradient(#{$position-to} at #{$position-at}, $color-stops),
+      $imageUrl center center/cover no-repeat;
+  }
+}
+
+@mixin inputSelection {
+  &::selection {
+    color: $white;
+    background: $blue-primary;
+  }
+  &::-moz-selection {
+    color: $white;
+    background: $blue-primary;
+  }
+}
+
+@mixin subtitle6 {
+  font-family: $figtree-medium !important;
+  font-size: $font-size-14;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.25rem;
+}

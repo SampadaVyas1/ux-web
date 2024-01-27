@@ -1,0 +1,57 @@
+@import "@/styles/colors";
+@import "@/styles/variables";
+@import "@/styles/mixins";
+
+.containerWrapper {
+  column-gap: 1rem;
+  @include respondTo(mobile) {
+    row-gap: 2rem;
+  }
+  @include respondTo(tablet) {
+    row-gap: 2rem;
+  }
+
+  .cardWrapper {
+    padding: 1.5rem;
+    border-radius: 1.5rem;
+    background: $dark-blue-black;
+    backdrop-filter: blur(0.125rem);
+    @include flexBox(flex-start, null, column, 2rem);
+    @include border($light-black-blue, 0.125rem, solid);
+
+    @include respondTo("tablet") {
+      border-radius: 1rem;
+    }
+
+    .iconWrapper {
+      @include widthHeight(2rem, 2rem);
+    }
+
+    .contentWrapper {
+      align-self: stretch;
+      opacity: 0.88;
+      @include flexBox(flex-start, null, column, 1rem);
+
+      .title {
+        color: $primary-blue;
+        line-height: 150%;
+        @include respondTo("mobile") {
+          @include body3;
+        }
+      }
+
+      .description {
+        color: $light-grey-100;
+        line-height: 150%;
+        min-height: 7.5rem;
+        @include respondTo("tablet") {
+          @include body3;
+        }
+
+        @include respondTo("mobile") {
+          @include subtitle4;
+        }
+      }
+    }
+  }
+}

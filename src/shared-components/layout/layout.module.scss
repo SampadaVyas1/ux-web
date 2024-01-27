@@ -1,0 +1,10 @@
+@import "@/styles/mixins";
+@import "@/styles/variables.scss";
+
+.layoutContainer {
+  min-height: 100vh;
+
+  .footerCompItem {
+    align-self: end;
+  }
+}

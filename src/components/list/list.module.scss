@@ -1,0 +1,22 @@
+@import "@/styles/colors";
+@import "@/styles/mixins";
+
+.listContainer {
+  @include flexBox(flex-start, null, column, 1rem, null);
+  .listTitle {
+    color: $light-grey-50;
+    font-weight: 500 !important;
+  }
+  .list {
+    @include flexBox(flex-start, null, column, 0.125rem, null);
+    color: $light-grey;
+    list-style-type: none;
+
+    .item {
+      @include flexBox(center center, null, 0.125rem, null);
+      .listcontent {
+        line-height: 150% !important;
+      }
+    }
+  }
+}

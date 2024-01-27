@@ -1,0 +1,16 @@
+@import "@/styles/colors";
+
+.labelContainer {
+  width: inherit;
+  line-height: 150%;
+  .required {
+    margin-left: 0.25rem;
+    color: $red-400;
+  }
+  .secondaryLabel {
+    float: right;
+  }
+}
+.errState {
+  color: $red-400;
+}

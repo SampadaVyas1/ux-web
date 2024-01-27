@@ -1,0 +1,61 @@
+@import "@/styles/colors";
+@import "@/styles/mixins";
+@import "@/styles/variables";
+
+.videoContainer {
+  @include widthHeight(inherit, inherit);
+
+  @include respondTo("mobile") {
+    @include widthHeight(inherit, 10rem);
+  }
+
+  .videoPlayer {
+    @include widthHeight(100%, inherit);
+    @include border($dark-grey-200, 0.5rem, solid);
+    fill: $gray-200;
+    stroke-width: 0.5rem;
+    stroke: $dark-grey-200;
+    position: relative;
+    border-radius: 1.25rem;
+    object-fit: cover;
+  }
+
+  .icon {
+    @include positioning(
+      absolute,
+      calc(50% - 2.5rem),
+      null,
+      null,
+      calc(50% - 2.5rem)
+    );
+
+    @include respondTo("tablet") {
+      @include positioning(
+        absolute,
+        calc(50% - 1.25rem),
+        null,
+        null,
+        calc(50% - 1.25rem)
+      );
+    }
+  }
+
+  .mobIcon {
+    @include positioning(
+      absolute,
+      calc(50% - 1rem),
+      null,
+      null,
+      calc(50% - 1rem)
+    );
+  }
+}
+
+.overlayDiv {
+  @include widthHeight(100%, 100%);
+  @include linearGradient(0.88, $gray-200);
+  @include border($dark-grey-200, 0.5rem, solid);
+  @include positioning(absolute, 0, null, null, 0);
+  border-radius: 1.25rem;
+  stroke: $dark-grey-200;
+}

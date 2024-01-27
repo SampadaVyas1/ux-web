@@ -1,0 +1,91 @@
+@import "@/styles/colors";
+@import "@/styles/variables";
+@import "@/styles/mixins";
+
+.componentWrapper {
+  width: 100%;
+  background: inherit;
+
+  .input {
+    @include widthHeight(inherit, 3rem);
+    @include flexBox(center, flex-start, null, 0.5rem);
+    padding: 0.75rem;
+    min-height: 3rem;
+    border-radius: 0.25rem;
+    background: $midnight-blue;
+    @include border();
+    @include inputText();
+    &:not(.errStateInput):not(:focus):hover {
+      @include border();
+      background: $dark-slate-grey;
+    }
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus,
+    &:-webkit-autofill:active {
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: $grey-100;
+      @include border();
+      border-radius: 0.25rem;
+      transition: background-color 5000s ease-in-out 0s;
+      box-shadow: 0 0 0rem 62.5rem $midnight-blue inset;
+    }
+  }
+
+  .icon {
+    @include flexBox();
+  }
+
+  .errStateInput {
+    @include border($red-400);
+    &:focus {
+      @include border($red-400);
+    }
+  }
+}
+
+.input-group-calender {
+  max-width: 14.063rem;
+  padding-left: 0.938rem;
+}
+.customHeaderContainer {
+  padding: 1rem;
+  @include flexBox(null, null, column, null);
+  @include widthHeight(20.5rem, null);
+  border-bottom: 0.0625rem solid $blue-grey-700;
+
+  .monthHeader {
+    @include flexBox(null, space-between, row, null);
+    .rightBtn,
+    .leftBtn {
+      background-color: transparent;
+      border: none;
+      outline: none;
+      @include flexBox();
+    }
+    .leftBtn {
+      transform: rotate(180deg);
+    }
+    .monthName {
+      @include subtitle6;
+      @include flexBox(center, center);
+      color: $silver;
+    }
+  }
+  .inputContainer {
+    @include flexBox(null, null, row, null);
+    @include widthHeight(100%, null);
+    padding-bottom: 0.75rem;
+    column-gap: 0.5rem;
+    .date {
+      border-radius: 0.25rem;
+      padding: 0.5rem 1rem;
+      @include widthHeight(70%, null);
+    }
+    .day {
+      border-radius: 0.25rem;
+      padding: 0.5rem 1rem;
+      @include widthHeight(30%, null);
+    }
+  }
+}

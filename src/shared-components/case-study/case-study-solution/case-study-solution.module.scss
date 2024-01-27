@@ -1,0 +1,74 @@
+@import "@/styles/colors";
+@import "@/styles/mixins";
+
+.solutionContainer {
+  padding: 8rem 0rem;
+  @include respondTo("tablet") {
+    padding: 4.5rem 0rem;
+  }
+  @include respondTo("mobile") {
+    padding: 4rem 0;
+  }
+  .solutionWrapper {
+    grid-column-gap: 1rem;
+    .content {
+      height: 100%;
+      @include flexBox(flex-start, center, column, 2rem, null);
+      .title {
+        @include heading5;
+        letter-spacing: 0.03125rem;
+        line-height: 120%;
+
+        @include respondTo("tablet") {
+          @include heading3;
+        }
+      }
+      .solutionDescription {
+        @include body3;
+        color: $silver;
+        line-height: 1.875rem !important;
+        @include respondTo("tablet") {
+          @include body1;
+          line-height: 1.5rem !important;
+        }
+      }
+    }
+  }
+
+  .spacerColumn {
+    @include respondTo("tablet") {
+      height: 3rem;
+    }
+    @include respondTo("mobile") {
+      height: 3rem;
+    }
+  }
+
+  .keyPointCard {
+    @include flexBox(flex-start, flex-start, column, 3rem, null);
+    padding: 1.5rem;
+    @include widthHeight(100%, auto);
+    border-radius: 1.5rem;
+    @include border($light-gray-100, 0.125rem, solid);
+    background: $dark-gray-100;
+
+    .bulletPoint {
+      @include flexBox(flex-start, null, null, 0.75rem, null);
+      .bulletImage {
+        @include widthHeight(1.5rem, 1.5rem);
+        @include flexBox(center, center, null, null, null);
+      }
+      .keyPoints {
+        color: $silver;
+        line-height: 1.87rem !important;
+        @include respondTo("tablet") {
+          @include body3;
+        }
+        @include respondTo("mobile") {
+          @include subtitle4;
+          line-height: 1.5rem !important;
+        }
+      }
+    }
+  }
+}

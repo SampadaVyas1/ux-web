@@ -1,0 +1,124 @@
+@import "@/styles/mixins";
+@import "@/styles/variables";
+@import "@/styles/colors";
+
+.outerWrapper {
+  background: $rgba-background-light-1;
+  @include widthHeight(74rem, null);
+  margin: 0 auto;
+  @include respondTo("tablet") {
+    @include widthHeight(calc(100% - 2rem), null);
+    margin: auto;
+  }
+  @include respondTo("mobile") {
+    @include widthHeight(calc(100% - 2rem), null);
+    margin: auto;
+  }
+  .wrapper {
+    .heading {
+      @include respondTo("tablet") {
+        font-size: $font-size-40;
+        line-height: 120%;
+      }
+      @include respondTo("mobile") {
+        font-size: $font-size-40;
+        line-height: 120%;
+      }
+    }
+    .subText {
+      margin-top: 0.5rem;
+      font-weight: $weight-400;
+      color: $grey-300;
+      @include respondTo("tablet") {
+        margin-top: 0.5rem;
+      }
+      @include respondTo("mobile") {
+        margin-top: 0.5rem;
+      }
+    }
+    .stepper {
+      margin: 2rem 0;
+    }
+    .formInputs {
+      column-gap: 1rem;
+      row-gap: 2rem;
+      @include respondTo("tablet") {
+        row-gap: 0.5rem;
+      }
+      @include respondTo("mobile") {
+        row-gap: 0.5rem;
+      }
+      @include respondTo("extraSmall") {
+        row-gap: 0.9rem;
+      }
+    }
+    .btnContainer {
+      @include flexBox(null, flex-end, row, 1.5rem, null);
+      margin-top: 1rem;
+      padding-bottom: 8rem;
+      @include respondTo("tablet") {
+        padding-bottom: 4rem;
+      }
+      @include respondTo("mobile") {
+        @include flexBox(null, center, column, 2.5rem, null);
+        padding-bottom: 4rem;
+      }
+      .btnWrapper {
+        @include widthHeight(null, 3rem);
+        @include flexBox(center, flex-end, row, 1rem, null);
+        @include respondTo("mobile") {
+          @include flexBox(null, flex-start, null, null, null);
+        }
+        .button {
+          @include widthHeight(6.25rem, 2.25rem);
+          @include flexBox(null, center, null, null, null);
+          @include positioning(relative, null, null, null, null);
+          align-self: center;
+          .containerWrapper {
+            background-color: transparent;
+            border-radius: 1.5rem;
+            @include widthHeight(5.5rem, 2rem);
+          }
+          .loaderWrapper {
+            @include widthHeight(1.75rem, 1.75rem);
+            @include positioning(null, 0.18rem, null, null, 0.25rem);
+          }
+
+          .loaderWrapper::after {
+            @include widthHeight(0.75rem, 0.75rem);
+          }
+        }
+      }
+    }
+  }
+}
+.trackLines {
+  @include widthHeight(null, 100%);
+  @include respondTo("mobile") {
+    @include widthHeight(100%, null);
+  }
+}
+
+.modalContainer {
+  height: auto !important;
+  .modalHeader {
+    @include widthHeight(100%, null);
+    line-height: 1.87rem !important;
+  }
+  .btnWrapper {
+    @include flexBox(center, flex-end, row, 0.5rem, null);
+    margin-top: 1.5rem;
+    .cancelButton {
+      color: $silver;
+      &:hover {
+        color: $white;
+      }
+    }
+    .goBackButton {
+      color: $dark-gray-200;
+      &:hover {
+        color: $white;
+      }
+    }
+  }
+}

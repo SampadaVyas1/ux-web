@@ -1,0 +1,55 @@
+@import "@/styles/mixins";
+@import "@/styles/colors";
+
+.mainInfoCounterWrapper {
+  z-index: 10;
+}
+.wrapper {
+  column-gap: 1rem;
+  @include respondTo("mobile") {
+    row-gap: 1rem;
+  }
+}
+
+.infoCounterItem {
+  @include flexBox(flex-start, null, column, 1rem, null);
+  @include respondTo("mobile") {
+    @include widthHeight(9.75rem, 4.18rem);
+    @include flexBox(flex-start, null, column, 0.5rem, null);
+  }
+
+  .experience {
+    color: $white;
+    @include flexBox(center, center, null, 0rem, null);
+    .experienceLevel {
+      @include respondTo("tablet") {
+        @include heading6;
+        line-height: 2.4rem;
+      }
+      @include respondTo("mobile") {
+        @include heading6;
+        line-height: 2.4rem;
+      }
+    }
+    .sideText {
+      padding-left: 0.5rem;
+    }
+  }
+  .title {
+    color: $grey-300;
+    @include respondTo("tablet") {
+      @include subtitle4;
+    }
+    @include respondTo("mobile") {
+      @include subtitle3;
+    }
+  }
+  .titleWrapper{
+    width: 100%;
+  }
+}
+.infoCount {
+  @include respondTo("mobile") {
+    margin-bottom: 1rem;
+  }
+}

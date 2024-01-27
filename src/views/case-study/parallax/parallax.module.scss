@@ -1,0 +1,31 @@
+@import "@/styles/mixins";
+@import "@/styles/colors";
+
+.ellipse {
+  left: 0% !important;
+  top: -7% !important;
+  @include widthHeight(11rem, 17.125rem);
+  @include respondTo("mobile") {
+    display: none;
+  }
+}
+
+.rightEllipse {
+  left: calc(100vw - 11.6rem) !important;
+  top: 1% !important;
+  @include widthHeight(11rem, 17.125rem);
+  @include respondTo("mobile") {
+    left: calc(100vw - 5rem) !important;
+    top: -8% !important;
+    @include widthHeight(5.5rem, 9rem);
+  }
+}
+
+.rightBottomEllipse {
+  left: calc(100vw - 11.6rem) !important;
+  top: 74% !important;
+  @include widthHeight(11rem, 17.125rem);
+  @include respondTo("mobile") {
+    display: none;
+  }
+}

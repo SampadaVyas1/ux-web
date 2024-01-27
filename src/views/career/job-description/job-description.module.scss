@@ -1,0 +1,25 @@
+@import "@/styles/colors.scss";
+@import "@/styles/mixins.scss";
+
+.heroSectionWrapper {
+  padding-top: 7.75rem;
+  padding-bottom: 4rem;
+}
+
+.jobContentLayout {
+  @include positioning(relative, null, null, null, null);
+  background: $black-russian-gradient;
+  padding: 4rem 0;
+  height: 100%;
+
+  @include respondTo("tablet") {
+    padding: 4rem 1.5rem;
+  }
+
+  @include respondTo("mobile") {
+    padding: 4rem 1rem;
+  }
+}
+.fullGridHeight {
+  height: 100% !important;
+}

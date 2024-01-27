@@ -1,0 +1,40 @@
+{
+  "hosting": {
+    "public": "build",
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+    "cleanUrls": true,
+    "appAssociation": "AUTO",
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/404.html"
+      },
+      {
+        "source": "/**",
+        "dynamicLinks": true
+      },
+      {
+        "source": "/case-study/**",
+        "dynamicLinks": true
+      },
+      {
+        "source": "/unsubscribe/**",
+        "dynamicLinks": true
+      },
+      {
+        "source": "/careers/job-description/**",
+        "dynamicLinks": true
+      },
+      {
+        "source": "/careers/job-apply/**",
+        "dynamicLinks": true
+      }
+    ],
+    "staticDirectory": [
+      {
+        "source": "/_next/static",
+        "destination": "/_next/static"
+      }
+    ]
+  }
+}

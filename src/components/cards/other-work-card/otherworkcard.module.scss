@@ -1,0 +1,78 @@
+@import "@/styles/colors";
+@import "@/styles/variables";
+@import "@/styles/mixins";
+
+.cardWrapper {
+  @include widthHeight(100%);
+  @include flexBox(flex-start, null, column, 1rem, wrap);
+  .imageContainerWrapper {
+    @include widthHeight(100%, 100%);
+
+    .imageContainer {
+      &::before {
+        content: "";
+        @include positioning(absolute, 0, null, null, 0);
+        @include widthHeight(100%, 100%);
+        @include backgroundOpacity($black-russian, "b3");
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        border-radius: 1.35rem;
+        @include respondTo("tablet") {
+          border-radius: 1rem;
+        }
+      }
+
+      &:hover::before {
+        opacity: 1;
+      }
+      .customCardImage {
+        border-radius: 1.35rem !important;
+        @include widthHeight(100%, 19.0625rem);
+        @include respondTo("mobile") {
+          @include widthHeight(100%, auto);
+          border-radius: 1rem !important;
+        }
+        @include respondTo("tablet") {
+          border-radius: 1rem !important;
+          @include widthHeight(100%, auto);
+        }
+      }
+    }
+  }
+
+  .contentWrapper {
+    @include flexBox(flex-start, null, column, 0.5rem);
+    margin-left: 0.2rem;
+    .title {
+      line-height: 150%;
+      font-style: normal;
+      @include respondTo("tablet") {
+        font-weight: 500;
+      }
+      @include respondTo("mobile") {
+        @include body3;
+      }
+    }
+    .description {
+      font-style: normal;
+      color: $grey-100;
+    }
+  }
+}
+.mainTiltCardContainer {
+  @include widthHeight(null, 19.2rem);
+
+  @include respondTo("mobile") {
+    height: fit-content;
+    gap: 0;
+  }
+  @include respondTo("tablet") {
+    height: fit-content;
+    gap: 0;
+  }
+}
+.cursorText {
+  @include flexBox(center, center, null, null, null);
+  @include positioning(absolute, 0, 0, 0, 0);
+  line-height: 1.3rem !important;
+}

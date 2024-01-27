@@ -1,0 +1,20 @@
+@import "@/styles/colors";
+@import "@/styles/mixins";
+
+.formWrapper {
+  .subtext {
+    padding: 0.5rem 0 2rem 0;
+    color: $blue-grey-300;
+  }
+  .wrapper {
+    @include flexBox(null, null, column, null, null);
+    row-gap: 0.43rem;
+  }
+  .btnContainer {
+    @include flexBox(center, flex-end, null, null, null);
+    margin-top: 0.5rem;
+    .customBtn {
+      @include widthHeight(auto, 2.25rem);
+    }
+  }
+}

@@ -1,0 +1,98 @@
+@import "@/styles/colors";
+@import "@/styles/mixins";
+
+.commonObjectiveStyles {
+  .objectiveItemContainer {
+    @include flexBox(flex-start, null, null, 1rem, null);
+
+    .number {
+      text-shadow:
+        1px 1px 0 $grey-100,
+        -1px -1px 0 $grey-100,
+        1px -1px 0 $grey-100,
+        -1px 1px 0 $grey-100,
+        1px 1px 0 $grey-100;
+      color: $black;
+      letter-spacing: 0.5px;
+      width: 5.0625rem;
+
+      @include respondTo("tablet") {
+        width: auto;
+      }
+
+      @include respondTo("mobile") {
+        width: 3.8125rem;
+      }
+    }
+    .description {
+      color: $silver;
+      line-height: 1.875rem !important;
+      flex: 1;
+
+      @include respondTo("tablet") {
+        line-height: 1.313rem !important;
+        @include subtitle1;
+      }
+      @include respondTo("mobile") {
+        @include subtitle4;
+      }
+    }
+  }
+}
+
+.projectDetailsSection {
+  @include positioning(relative, null, null, null, null);
+  @include flexBox(flex-start, null, column, 4rem, null);
+  font-family: $figtree-light;
+
+  padding: 8rem 0;
+  @include respondTo("tablet") {
+    padding: 4rem 0;
+  }
+  @include respondTo("mobile") {
+    padding: 4rem 0;
+  }
+
+  .contentContainer {
+    grid-row-gap: 4rem;
+
+    @include respondTo("tablet") {
+      grid-row-gap: 2.5rem;
+    }
+
+    @include respondTo("mobile") {
+      grid-row-gap: 2.5rem;
+    }
+
+    .objectiveTitle {
+      @include heading5;
+      letter-spacing: 0.03125rem;
+
+      @include respondTo("tablet") {
+        @include heading3;
+      }
+    }
+    .projectDescription {
+      line-height: 150% !important;
+      color: $silver;
+      text-align: justify;
+
+      @include respondTo("tablet") {
+        line-height: 1.5rem !important;
+      }
+      @include respondTo("mobile") {
+        font-weight: 400;
+        line-height: 1.5rem !important;
+      }
+    }
+  }
+
+  .objectives {
+    @include gridProps(1fr 1fr, null, 7.25rem, 3.5rem, null, null);
+    @extend .commonObjectiveStyles;
+    @include respondTo("mobile") {
+      @include gridProps(1fr, null, 7.25rem, 3.5rem, null, null);
+      @extend .commonObjectiveStyles;
+    }
+  }
+}

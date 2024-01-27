@@ -1,0 +1,46 @@
+@import "@/styles/mixins";
+@import "@/styles/colors";
+
+.wrapper {
+  @include widthHeight(74rem, null);
+  margin: auto;
+  @include respondTo("tablet") {
+    @include widthHeight(calc(100% - 2rem), null);
+  }
+  @include respondTo("mobile") {
+    @include widthHeight(calc(100% - 2rem), null);
+    margin: auto;
+  }
+
+  .headingWrapper {
+    @include maxWidthHeight(42.75rem, 5.81rem);
+    margin-bottom: 4rem;
+    
+    @include respondTo("tablet") {
+      margin-bottom: 2.5rem;
+    }
+
+    @include respondTo("mobile") {
+      @include maxWidthHeight(20.5rem, 7.25rem);
+      margin-bottom: 1.5rem;
+    }
+  }
+  .peopleContainer {
+    @include gridProps(repeat(4, 1fr), null, 1rem, 2rem, null, null);
+    @include respondTo("tablet") {
+      @include gridProps(repeat(3, 1fr), null, 1rem, 2rem, null, null);
+    }
+    @include respondTo("mobile") {
+      @include gridProps(repeat(2, 1fr), null, 1rem, 1rem, null, null);
+      margin-bottom: 0;
+    }
+  }
+  .btnContainer {
+    display: none;
+    @include respondTo("mobile") {
+      @include widthHeight(null, 2.25rem);
+      @include flexBox(null, center, null, null, null);
+      margin-top: 2.5rem;
+    }
+  }
+}

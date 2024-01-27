@@ -1,0 +1,147 @@
+@import "@/styles/mixins";
+@import "@/styles/variables";
+
+.heading-1 {
+  @include heading2;
+  line-height: 5.4rem;
+
+  @include respondTo("tablet") {
+    @include heading3;
+    line-height: 3.6rem;
+  }
+
+  @include respondTo("mobile") {
+    @include heading3;
+  }
+}
+.light {
+  font-family: $figtree-light !important;
+}
+
+.regular {
+  font-family: $figtree-regular;
+}
+
+.bold {
+  font-family: $figtree-bold !important;
+}
+
+.medium {
+  font-family: $figtree-medium !important;
+}
+
+.body-1 {
+  @include body2;
+  line-height: 3rem;
+
+  @include respondTo("tablet") {
+    @include body1;
+    line-height: 1.5rem;
+  }
+
+  @include respondTo("mobile") {
+    @include body1;
+  }
+}
+
+.body-2 {
+  @include body3;
+  line-height: 3rem;
+
+  @include respondTo("tablet") {
+    @include body1;
+    line-height: 1.87rem;
+  }
+
+  @include respondTo("mobile") {
+    @include body1;
+  }
+}
+
+.error {
+  @include subtitle1;
+}
+
+.heading-2 {
+  @include heading6;
+  line-height: 2.4rem;
+
+  @include respondTo("tablet") {
+    @include body1;
+    line-height: 1.5rem;
+  }
+
+  @include respondTo("mobile") {
+    @include body1;
+  }
+}
+
+.heading-3 {
+  @include heading4;
+  line-height: 2.25rem;
+
+  @include respondTo("tablet") {
+    @include heading4;
+  }
+
+  @include respondTo("mobile") {
+    @include heading4;
+  }
+}
+
+.body-3 {
+  @include body1;
+  line-height: 1.5rem;
+}
+
+.button-text {
+  @include subtitle5;
+  line-height: 1.31rem;
+  letter-spacing: 0.03rem;
+}
+
+.input-label {
+  @include subtitle1;
+}
+
+.heading-4 {
+  @include subtitle4;
+  line-height: 150%;
+
+  @include respondTo("tablet") {
+    @include subtitle4;
+  }
+
+  @include respondTo("mobile") {
+    @include subtitle4;
+  }
+}
+
+.heading-5 {
+  @include subtitle3;
+}
+
+.heading-6 {
+  @include heading5;
+  line-height: 4.8rem;
+
+  @include respondTo("tablet") {
+    @include heading3;
+    line-height: 3.6rem;
+  }
+
+  @include respondTo("mobile") {
+    @include heading3;
+    line-height: 3.6rem;
+  }
+}
+
+.body-5 {
+  @include subtitle1;
+  line-height: 150%;
+}
+
+.body-6 {
+  @include subtitle2;
+  line-height: 1.12rem;
+}

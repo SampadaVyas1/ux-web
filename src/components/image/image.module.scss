@@ -1,0 +1,12 @@
+@import "@/styles/mixins";
+@import "@/styles/variables";
+
+.roundedSquare {
+  border-radius: 1.5rem;
+  @include respondTo("tablet") {
+    border-radius: 1rem;
+  }
+}
+.round {
+  border-radius: 50%;
+}

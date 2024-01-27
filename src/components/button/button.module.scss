@@ -1,0 +1,62 @@
+@import "@/styles/colors";
+@import "@/styles/variables";
+@import "@/styles/mixins";
+
+.btn {
+  background-color: $white;
+  color: $dark-gray-200;
+  border-radius: 1.5rem;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  display: block;
+  padding: 0.5rem 1rem;
+  text-align: $text-align-center;
+  text-transform: uppercase;
+  width: max-content;
+  min-height: 2.25rem;
+  @include subtitle5;
+  font-family: figTree-bold;
+  @include border(transparent, 0.06rem, solid);
+
+  &:disabled {
+    border-radius: 1.5rem;
+    @include border($grey-100, 0.06rem, solid);
+    background: $primary;
+    color: $grey-100;
+  }
+
+  &:not(:disabled):hover {
+    @include border($light-grey-100, 0.06rem, solid);
+    transition: 0.5ms, 100ms;
+    transition-property: outline;
+    color: $white;
+    background: $primary;
+  }
+
+  .btnContentWrapper {
+    @include flexBox(center);
+  }
+}
+.secondary {
+  border-radius: 1.5rem;
+  @include border($grey-100, 0.06rem, solid);
+  color: $silver;
+  background-color: $dark-blue-black;
+  @include border(transparent, 0.06rem, solid);
+
+  &:disabled {
+    border-radius: 1.5rem;
+    @include border($grey-300, 0.06rem, solid);
+    background: $primary;
+    color: $light-grey;
+    @include border(transparent, 0.06rem, solid);
+  }
+  &:hover {
+    @include border($light-grey-100, 0.06rem, solid);
+    transition: 0.5ms, 100ms;
+    color: $silver;
+    transition-property: outline;
+  }
+}

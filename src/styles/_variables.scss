@@ -1,0 +1,47 @@
+/* Font types */
+$figtree-regular: "figTree-regular";
+$figtree-light: "figTree-light";
+$figtree-bold: "figTree-bold";
+$figtree-medium: "figTree-medium";
+
+/* Default screen resolution support */
+$ratio-xxxs: 17.5rem; //280px
+$ratio-xxs: 22.5rem; //360px
+$ratio-xs: 30rem; // 480px
+$ratio-sm: 46.5rem; // 744px
+$ratio-md: 75rem; // 1200px
+$ratio-lg: 90rem; // 1440px
+$ratio-xl: 107.5rem; // 1720px
+
+$weight-300: 300;
+$weight-400: 400;
+$weight-500: 500;
+$weight-600: 600;
+$weight-700: 700;
+$weight-800: 800;
+
+$font-size-10: 0.625rem;
+$font-size-12: 0.75rem;
+$font-size-14: 0.875rem;
+$font-size-20: 1.25rem;
+$font-size-32: 2rem;
+$font-size-24: 1.5rem;
+$font-size-18: 1.125rem;
+$font-size-16: 1rem;
+$font-size-20: 1.25rem;
+$font-size-40: 2.5rem;
+$font-size-48: 3rem;
+$font-size-64: 4rem;
+$font-size-72: 4.5rem;
+
+/* Style properties */
+$display-flex: flex;
+$display-grid: grid;
+$display-block: block;
+$text-align-center: center;
+$text-align-right: right;
+$text-align-left: left;
+$letter-spacing-small: 0.5px;
+$border-width: 0.0625rem;
+$height-full: 100vh;
+$content-container-max-size: 74rem;

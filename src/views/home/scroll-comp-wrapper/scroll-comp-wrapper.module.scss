@@ -1,0 +1,12 @@
+@import "@/styles/colors.scss";
+@import "@/styles/mixins.scss";
+
+.heading {
+  margin-bottom: 4rem;
+  @include respondTo("tablet") {
+    margin-bottom: 2.5rem;
+  }
+  @include respondTo("mobile") {
+    margin-bottom: 1.5rem;
+  }
+}

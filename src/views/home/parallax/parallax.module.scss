@@ -1,0 +1,29 @@
+@import "@/styles/mixins";
+@import "@/styles/colors";
+
+.ellipse {
+  left: calc(100vw - 18.75rem) !important;
+  top: -8% !important;
+  @include widthHeight(18.2rem, 28.125rem);
+  @include respondTo("tablet") {
+    left: calc(100vw - 16rem) !important;
+    top: -10% !important;
+    @include widthHeight(16rem, 26.125rem);
+  }
+  @include respondTo("mobile") {
+    left: calc(100vw - 5rem) !important;
+    top: -6.5% !important;
+    @include widthHeight(5.5rem, 9rem);
+  }
+}
+
+.rectangle {
+  top: 2% !important;
+  @include widthHeight(9.4rem, 22.2rem);
+  z-index: 10;
+  @include respondTo("mobile") {
+    top: -3.5% !important;
+    left: -5% !important;
+    @include widthHeight(4rem, 9rem);
+  }
+}

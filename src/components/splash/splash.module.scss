@@ -1,0 +1,21 @@
+@import "@/styles/colors";
+@import "@/styles/mixins";
+
+.wrapper {
+  @include positioning(relative,null, null, null, null);
+  overflow: hidden;
+  @include widthHeight(100%, 100vh);
+}
+
+.container {
+  background: $black-500;
+  backdrop-filter: blur(0.375rem);
+  z-index: 10;
+  @include flexBox(center, center, null, null, null);
+  @include widthHeight(100vw, 100vh);
+}
+.customStylingForExtraSmallDevice {
+  @include respondTo("extraSmall") {
+    margin-left: 0.5rem !important;
+  }
+}

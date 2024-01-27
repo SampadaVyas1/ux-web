@@ -1,0 +1,96 @@
+@import "@/styles/colors";
+@import "@/styles/mixins";
+
+.componentWrapper {
+  width: 100%;
+
+  .inputFieldWrapper {
+    @include widthHeight(100%, 3rem);
+    box-sizing: border-box;
+    border-radius: 0.25rem;
+    background: $midnight-blue;
+    @include border($blue-grey-700);
+    @include inputText();
+    &:not(.errStateInput):not(:focus):hover {
+      @include border();
+      background: $dark-slate-grey;
+    }
+    .fileDetails {
+      padding: 0.75rem;
+      @include flexBox(center, space-between);
+      .fileName {
+        @include flexBox(center, null, null, 0.25rem);
+        @include widthHeight(calc(100% - 24px), inherit);
+        .name {
+          @include widthHeight(calc(100% - 28px), inherit);
+          display: block;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          color: $silver;
+        }
+      }
+      .deleteIcon {
+        cursor: pointer;
+      }
+    }
+
+    .inputWrapper {
+      padding: 0.75rem;
+      position: relative;
+      @include widthHeight(inherit, inherit);
+      .input {
+        margin: -0.75rem 0rem 0rem -0.75rem;
+        @include widthHeight(inherit, inherit);
+        position: absolute;
+        opacity: 0;
+        overflow: hidden;
+        z-index: 1;
+        cursor: pointer;
+      }
+      .fileUploadSection {
+        @include flexBox(center, space-between);
+        .placeholder {
+          @include widthHeight(calc(100% - 28px), inherit);
+          display: block;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+      }
+    }
+  }
+  .errStateInput {
+    @include border($red-400);
+    &:focus {
+      @include border($red-400);
+    }
+  }
+}
+
+.resetDefaultStyle {
+  input {
+    border: none;
+    outline: none;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  input[type="file"]::file-selector-button {
+    visibility: hidden;
+    color: transparent;
+  }
+
+  input[type="file"]::-webkit-file-upload-button {
+    visibility: hidden;
+    color: transparent;
+  }
+  input {
+    @include inputSelection;
+  }
+}
+
+.fileUploader {
+  @include flexBox(center, center, null, null, null);
+  z-index: 1;
+  cursor: pointer !important;
+}

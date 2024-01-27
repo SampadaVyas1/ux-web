@@ -1,0 +1,28 @@
+@import "@/styles/variables.scss";
+@import "@/styles/colors.scss";
+@import "@/styles/mixins.scss";
+
+.outcomeWrapper {
+  column-gap: 7.31rem;
+
+  @include respondTo("mobile") {
+    row-gap: 2.56rem !important;
+    column-gap: 0rem;
+  }
+
+  @include respondTo("tablet") {
+    column-gap: 0rem;
+    row-gap: 3rem;
+  }
+
+  .contentWrapper {
+    height: 100%;
+    @include flexBox(flex-start, center, column, null);
+  }
+}
+
+.customStyleOnContent {
+  @include respondTo("mobile") {
+    @include body3($important: true);
+  }
+}

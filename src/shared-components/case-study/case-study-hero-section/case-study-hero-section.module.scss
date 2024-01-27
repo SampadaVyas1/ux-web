@@ -1,0 +1,55 @@
+@import "@/styles/colors.scss";
+@import "@/styles/mixins.scss";
+
+.title {
+  @include respondTo("mobile") {
+    @include heading4;
+    line-height: 150%;
+  }
+}
+
+.componentWrapper {
+  background: $rgba-background-light-1;
+  padding-top: 7.81rem;
+  padding-bottom: 8rem;
+
+  @include respondTo("tablet") {
+    padding-top: 8.25rem;
+    padding-bottom: 4rem;
+  }
+
+  @include respondTo("mobile") {
+    padding-top: 6.5rem;
+    padding-bottom: 4rem;
+  }
+
+  .breadCrumbs {
+    margin-bottom: 3.44rem;
+
+    @include respondTo("tablet") {
+      margin-bottom: 2.5rem;
+    }
+
+    @include respondTo("mobile") {
+      margin-bottom: 2.5rem;
+    }
+  }
+  .subHeading {
+    margin-top: 2rem;
+    color: $light-grey-100;
+    line-height: 150%;
+
+    @include respondTo("mobile") {
+      margin-top: 1rem;
+      @include subtitle3;
+      font-weight: $weight-400;
+    }
+  }
+  .records {
+    margin-top: 4rem;
+
+    @include respondTo("mobile") {
+      margin-top: 2.5rem;
+    }
+  }
+}

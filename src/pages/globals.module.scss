@@ -1,0 +1,53 @@
+@import "@/styles/mixins.scss";
+@import "@/styles/variables.scss";
+@import "@/styles/colors";
+
+.content {
+  @include positioning(relative, null, null, null, null);
+  width: $content-container-max-size;
+  margin: 0 auto;
+  @include gridProps(repeat(12, 1fr), null, 1rem);
+
+  @include respondTo("tablet") {
+    width: 100%;
+    margin: 0;
+    padding: 0 1.5rem;
+    @include gridProps(repeat(8, 1fr), null, 1rem);
+  }
+
+  @include respondTo("mobile") {
+    width: 100%;
+    margin: 0;
+    padding: 0 1rem;
+    @include gridProps(repeat(4, 1fr), null, 1rem);
+  }
+}
+
+.lineWrapper {
+  @include positioning(absolute, 0, 0, 0, 0);
+  @include widthHeight(74rem, 100%);
+  @include gridProps(repeat(12, 1fr), null, 1rem, null, null, null);
+  margin: 0 auto;
+  z-index: -1;
+
+  @include respondTo("tablet") {
+    @include widthHeight(100%, 100%);
+    @include gridProps(repeat(8, 1fr), null, 1rem, null, null, null);
+  }
+
+  @include respondTo("mobile") {
+    @include widthHeight(calc(100% - 2rem), 100%);
+    @include gridProps(repeat(4, 1fr), null, 1rem, null, null, null);
+  }
+
+  .droneItem {
+    @include flexBox(center, space-between, null, null, null);
+    .line {
+      background: var(--ux-grid, linear-gradient(180deg, #111318 0%, #485168 31.25%, #282D39 59.37%, #161920 100%)) !important;
+      width: 1px;
+    }
+  }
+  .formGrids {
+    @include widthHeight(null, inherit !important);
+  }
+}

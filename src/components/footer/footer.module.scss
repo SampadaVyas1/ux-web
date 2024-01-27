@@ -1,0 +1,207 @@
+@import "@/styles/variables.scss";
+@import "@/styles/colors.scss";
+@import "@/styles/mixins.scss";
+
+@mixin overflowProp {
+  overflow: hidden;
+  transition: min-height 0.3s ease-in-out;
+}
+.footerInfo {
+  z-index: 4;
+}
+
+.footerInfo:first-child {
+  @include respondTo("tablet") {
+    padding-bottom: 2.5rem;
+  }
+  @include respondTo("mobile") {
+    padding-bottom: 1rem;
+  }
+}
+
+.coditasLogo {
+  cursor: pointer;
+}
+.footerWrapper {
+  @include backgroundOpacity($black-russian, "ff");
+  position: relative;
+  min-height: 19.875rem;
+  padding: 4rem 0rem 1rem;
+
+  @include respondTo("tablet") {
+    padding: 4rem 0rem 1rem;
+  }
+  @include respondTo("mobile") {
+    padding: 2.5rem 0rem 1rem;
+  }
+
+  .footerBgEllipse {
+    @include positioning(absolute, null, null, 0, 0);
+    z-index: 1;
+  }
+}
+
+.footerList {
+  padding: 4rem 0;
+}
+
+.companyLogoDesc {
+  padding-top: 0.25rem;
+  color: $silver;
+  @include subtitle2;
+}
+
+.copyRightDec {
+  padding-top: 1rem;
+  color: $silver;
+  @include subtitle2;
+  font-weight: 300;
+
+  @include respondTo("tablet") {
+    padding-left: 0px;
+    font-weight: 400;
+  }
+
+  @include respondTo("mobile") {
+    padding-left: 0px;
+  }
+}
+
+.footerListTitle {
+  color: var(--colors-grey-50, $light-grey-50);
+  @include body1;
+  font-weight: 500;
+  line-height: 150%;
+  padding-bottom: 1rem;
+  z-index: 2;
+  position: sticky;
+
+  @include respondTo("mobile") {
+    padding: 1rem 0;
+    border-top: 0.0625rem solid $dark-charcoal;
+  }
+  .emailField {
+    padding-right: 2.25rem;
+    @include respondTo("tablet") {
+      padding-right: 2rem;
+    }
+    @include respondTo("mobile") {
+      padding-right: 2.25rem;
+    }
+  }
+}
+
+.footerInfo:nth-child(3) {
+  @include respondTo("mobile") {
+    border-bottom: 0.0625rem solid $dark-charcoal;
+    padding-bottom: 0.4rem;
+  }
+  .footerListTitle {
+    padding-bottom: 0.6rem;
+  }
+}
+
+.footerListItemsContainer {
+  z-index: 2;
+
+  @include respondTo("mobile") {
+    position: sticky;
+    height: 0;
+    min-height: 0rem;
+    @include overflowProp;
+    margin: 0;
+  }
+
+  .footerListItems {
+    @include subtitle5;
+    color: var(--colors-grey-300, $light-grey);
+    font-weight: 400;
+    line-height: 150%;
+    text-transform: capitalize;
+    margin-top: 0.315rem;
+    cursor: pointer;
+    @include flexBox(center);
+    @include widthHeight(fit-content, auto);
+  }
+}
+
+.activeList {
+  @include respondTo("mobile") {
+    min-height: 7rem !important;
+    @include overflowProp;
+  }
+}
+
+.subScribeGridItem {
+  @include respondTo("mobile") {
+    grid-row-start: none;
+  }
+
+  .footerListTitle {
+    @include respondTo("mobile") {
+      border-top: none !important;
+    }
+  }
+}
+
+.backToTop {
+  margin-top: 4rem;
+  @include respondTo("mobile") {
+    margin-top: 2rem;
+  }
+}
+
+.accordionCTA {
+  float: right;
+  display: none;
+
+  @include respondTo("mobile") {
+    display: block;
+    @include positioning(absolute, 1rem, 0rem, null, null);
+  }
+}
+
+.newsLetterSubscriptionTitle {
+  font-weight: 500 !important;
+}
+
+.footerFormWrapper {
+  margin-top: 0.75rem;
+  @include positioning(relative, null, null, null, null);
+  @include widthHeight(auto, 3rem);
+
+  @include respondTo("mobile") {
+    padding-bottom: 5rem;
+  }
+
+  .newsletterIcon {
+    @include positioning(absolute, 0.65rem, 0.75rem, null, null);
+    padding: 0;
+    border: 0 !important;
+    background: inherit !important;
+    @include respondTo("tablet") {
+      @include positioning(absolute, 0.65rem, 0.5rem, null, null);
+    }
+    @include respondTo("mobile") {
+      @include positioning(absolute, 0.65rem, 0.75rem, null, null);
+    }
+    &:hover {
+      box-shadow: none !important;
+    }
+
+    .loaderWrapper {
+      @include widthHeight(1.75rem, 1.75rem);
+      @include positioning(absolute, 0.3rem, 0.75rem, null, -1.75rem);
+    }
+
+    .loaderWrapper::after {
+      @include widthHeight(0.75rem, 0.75rem);
+    }
+  }
+}
+
+.subScribeGridItem > .footerListTitle {
+  @include respondTo("mobile") {
+    padding-bottom: 0.25rem !important;
+  }
+}

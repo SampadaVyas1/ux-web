@@ -1,0 +1,108 @@
+@import "@/styles/colors.scss";
+@import "@/styles/mixins.scss";
+$grainEffect: url("../assets/images/grainEffect.png");
+
+.ourVisionWrapper {
+  background: $dark-gray-100;
+  opacity: 0.9;
+}
+.heroSectionContainer {
+  background: $rgba-background-light-1;
+}
+.heroSectionContainer,
+.contentWrapper {
+  padding-bottom: 0 !important;
+}
+.infoContainer {
+  background: $rgba-background-light-1;
+  @include gradientWithImage(
+    $grainEffect,
+    "radial",
+    null,
+    15.32% 21.04%,
+    151.92% 127.02%,
+    $light-blue-primary 0%,
+    $light-blue-secondary 77.08%,
+    $light-blue-ternary 100%
+  );
+  background-blend-mode: overlay, normal;
+  backdrop-filter: blur(2.5rem);
+  @include widthHeight(30.25rem, 18.25rem);
+  @include respondTo("tablet") {
+    @include widthHeight(100%, auto);
+  }
+}
+.infoContainer :first-child {
+  @include widthHeight(100%, 7.12rem);
+  @include respondTo("tablet") {
+    @include widthHeight(100%, auto);
+  }
+}
+.infoContainer :last-child {
+  letter-spacing: -0.01rem;
+}
+.infoCounter {
+  padding: 3.5rem 0 8rem 0;
+  @include respondTo("tablet") {
+    padding: 1.5rem 0 4rem 0;
+  }
+  @include respondTo("mobile") {
+    padding: 1.5rem 0 4rem 0;
+  }
+}
+
+.formContainer {
+  background: $rgba-background-light-1;
+  padding: 8rem 0rem;
+  @include respondTo("tablet") {
+    padding: 8rem 0rem 7.3rem;
+  }
+  @include respondTo("mobile") {
+    padding: 0rem 0rem 4rem;
+  }
+}
+.formGrids {
+  @include widthHeight(null, inherit !important);
+}
+.formContainer > :first-child {
+  @include respondTo("mobile") {
+    padding: 0;
+  }
+}
+
+.coreBeliefsWrapper {
+  background: $rgba-background-light-1;
+}
+.coreBeliefsWrapper > :first-child {
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+  margin-left: auto;
+  margin-right: auto;
+  @include respondTo("tablet") {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+.meetPeopleContainer {
+  background: $dark-gray-100;
+  padding: 8rem 0;
+  @include respondTo("tablet") {
+    padding: 4rem 0;
+  }
+  @include respondTo("mobile") {
+    padding: 4rem 0;
+  }
+}
+
+.gridWrapper {
+  @include respondTo("tablet") {
+    margin: 0 1.5rem;
+    @include widthHeight(calc(100% - 3rem) !important, null);
+  }
+  @include respondTo("mobile") {
+    margin: 0 1rem;
+    @include widthHeight(calc(100% - 2rem) !important, null);
+  }
+}

@@ -1,0 +1,73 @@
+@import "@/styles/colors";
+@import "@/styles/mixins";
+
+.outerWrapper {
+  background: $rgba-background-light-1;
+  @include widthHeight(74rem, null);
+  padding-top: 11.25rem;
+  padding-bottom: 8rem;
+  margin-left: auto;
+  margin-right: auto;
+  @include respondTo("tablet") {
+    @include widthHeight(100%, null);
+  }
+  @include respondTo("mobile") {
+    @include widthHeight(100%, null);
+    padding-top: 7.5rem;
+    padding-bottom: 4rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .subText {
+    color: $silver;
+    margin-top: 0.5rem;
+    line-height: 1.87rem;
+    @include respondTo("mobile") {
+      line-height: 1.5rem;
+    }
+  }
+  .wrapper {
+    @include gridProps(repeat(2, 1fr), null, 1rem, 1rem, null, null);
+    @include positioning(relative, null, null, null, null);
+    margin-top: 4rem;
+    @include respondTo("mobile") {
+      @include gridProps(repeat(1, 1fr), null, 1rem, 0.5rem, null, null);
+      margin-top: 2.5rem;
+    }
+    .formInputs {
+      @include flexBox(null, null, column, null, null);
+      row-gap: 0.25rem;
+    }
+  }
+  .checkBoxField {
+    @include respondTo("mobile") {
+      margin-top: 0.25rem;
+    }
+    .checkBoxWrapper {
+      background: transparent;
+      border-color: transparent;
+    }
+  }
+  .btnContainer {
+    margin-top: 1.5rem;
+    .submitBtn {
+      @include widthHeight(6.25rem, 2.25rem);
+      @include positioning(relative, null, null, null, null);
+      @include flexBox(center, center, null, null, null);
+      .containerWrapper {
+        background-color: transparent;
+        border-radius: 1.5rem;
+        @include widthHeight(5.5rem, 2rem);
+      }
+
+      .loaderWrapper {
+        @include widthHeight(1.75rem, 1.75rem);
+        @include positioning(null, 0.18rem, null, null, 0.25rem);
+      }
+
+      .loaderWrapper::after {
+        @include widthHeight(0.75rem, 0.75rem);
+      }
+    }
+  }
+}

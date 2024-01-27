@@ -1,0 +1,47 @@
+@import "@/styles/colors";
+@import "@/styles/variables";
+@import "@/styles/mixins";
+
+.componentWrapper {
+  width: 100%;
+  background: inherit;
+  @include flexBox(flex-start, null, column, 4px);
+
+  .textArea {
+    resize: none;
+    width: inherit;
+    padding: 0.75rem;
+    max-height: 8rem;
+    min-height: 7.87rem;
+    overflow-y: auto;
+    border-radius: 0.25rem;
+    background: $midnight-blue;
+    @include border($blue-grey-700, 0.06rem, solid);
+    @include inputText();
+    &:not(.errStateTextArea):not(:focus):hover {
+      @include border();
+      background: $dark-slate-grey;
+    }
+    &:focus {
+      @include border();
+    }
+  }
+  .errStateTextArea {
+    @include border($red-400);
+    &:focus {
+      @include border($red-400);
+    }
+  }
+}
+
+.resetDefaultStyle {
+  textarea {
+    border: none;
+    outline: none;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  textarea {
+    @include inputSelection;
+  }
+}

@@ -1,0 +1,35 @@
+@import "@/styles/mixins.scss";
+
+.titlewrapper {
+  gap: 1rem;
+  padding-bottom: 4rem;
+  @include widthHeight(74rem, null);
+  margin: 0 auto;
+
+  @include respondTo("tablet") {
+    @include widthHeight(auto, null);
+    padding: 0 1.5rem 2.5rem 1.5rem;
+  }
+
+  @include respondTo("mobile") {
+    @include widthHeight(auto, null);
+    padding: 0 1rem 1.5rem 1rem;
+  }
+}
+
+.visualDesignAndWireFramesTitle {
+  @include heading5;
+  line-height: 120%;
+  letter-spacing: 0.03125rem;
+  @include respondTo("tablet") {
+    @include heading3;
+  }
+}
+
+.visualDesignAndWireFramesImageContainer {
+  @include flexBox();
+  .visualDesignAndWireFramesImage {
+    @include positioning(relative, null, null, null, null);
+    @include widthHeight(100%, fit-content);
+  }
+}

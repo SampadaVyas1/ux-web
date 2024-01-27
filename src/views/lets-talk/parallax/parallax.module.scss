@@ -1,0 +1,15 @@
+@import "@/styles/mixins";
+@import "@/styles/colors";
+
+.ellipse {
+  display: none;
+  left: calc(100vw - 11.6rem) !important;
+  top: 15% !important;
+  @include widthHeight(11rem, 17.125rem);
+  @include respondTo("mobile") {
+    display: block;
+    left: calc(100vw - 4rem) !important;
+    top: -10% !important;
+    @include widthHeight(5.5rem, 9rem);
+  }
+}

@@ -1,0 +1,38 @@
+@import "@/styles/mixins";
+@import "@/styles/colors";
+
+.ellipse {
+  left: calc(100vw - 11.6rem) !important;
+  top: -11% !important;
+  @include widthHeight(11rem, 17.125rem);
+
+  @include respondTo("mobile") {
+    left: calc(100vw - 4rem) !important;
+    top: -12% !important;
+    @include widthHeight(5.5rem, 9rem);
+  }
+}
+
+.leftEllipse {
+  left: 0% !important;
+  top: -7% !important;
+  @include widthHeight(11rem, 17.125rem);
+
+  @include respondTo("mobile") {
+    left: 0% !important;
+    top: -9.5% !important;
+    @include widthHeight(4rem, 7rem);
+  }
+}
+
+.bottomEllipse {
+  left: calc(100vw - 11.6rem) !important;
+  top: 15% !important;
+  @include widthHeight(11rem, 17.125rem);
+
+  @include respondTo("mobile") {
+    top: 13% !important;
+    left: calc(100vw - 5rem) !important;
+    @include widthHeight(6rem, 9rem);
+  }
+}

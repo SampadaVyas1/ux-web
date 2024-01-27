@@ -1,0 +1,113 @@
+@import "@/styles/colors";
+@import "@/styles/mixins";
+
+.imageWrapper {
+  @include flexBox(center, null, null, null, null);
+
+  .leftSection {
+    @include widthHeight(100%, null);
+    @include positioning(relative, null, null, null, null);
+
+    .imageContainer {
+      border-radius: 1.5rem 0rem 0rem 1.5rem;
+      @include respondTo("tablet") {
+        @include widthHeight(100%, null);
+        border-top-right-radius: 2.5rem;
+      }
+
+      @include respondTo("mobile") {
+        border-top-right-radius: 0;
+      }
+    }
+
+    .infoText {
+      @include flexBox(null, null, column, null, null);
+      @include positioning(absolute, 6.25rem, null, null, 1.75rem);
+      row-gap: 1rem;
+      @include widthHeight(30.25rem, 8.25rem);
+
+      @include respondTo("tablet") {
+        @include widthHeight(14.62rem, null);
+      }
+
+      @include respondTo("mobile") {
+        @include widthHeight(100%, null);
+        left: 1rem;
+        row-gap: 0.5rem;
+      }
+
+      .subText {
+        line-height: 150%;
+        color: $light-grey;
+        margin-right: 0.5rem;
+      }
+    }
+  }
+}
+
+.form {
+  @include widthHeight(100%, null);
+  @include flexBox(null, null, column, null, null);
+  @include border($light-gray-100, 0.12rem, solid);
+  padding: 2rem;
+  border-radius: 1.5rem;
+  background: $dark-gray-100;
+  backdrop-filter: blur(0.12rem);
+
+  @include respondTo("tablet") {
+    @include widthHeight(55%, auto);
+    @include positioning(absolute, null, 1.5rem, null, null);
+    margin-top: -26.75rem;
+    padding: 1.5rem;
+    border-radius: 1rem;
+  }
+
+  @include respondTo("mobile") {
+    @include widthHeight(calc(100% - 2rem), auto);
+    @include positioning(relative, null, 0, null, null);
+    margin: -4.25rem auto auto auto;
+    padding: 1.5rem;
+  }
+
+  .formInputs {
+    @include flexBox(null, null, column, 1rem, null);
+  }
+
+  .btnContainer {
+    @include flexBox(null, flex-end, null, null, null);
+    @include respondTo("extraSmall") {
+      padding-top: 1.5rem;
+    }
+    .submitBtn {
+      @include widthHeight(6.25rem, 2.25rem);
+      @include positioning(relative, null, null, null, null);
+      @include flexBox(center, center, null, null, null);
+
+      .containerWrapper {
+        background-color: transparent;
+        border-radius: 1.5rem;
+        @include widthHeight(5.5rem, 2rem);
+      }
+
+      .loaderWrapper {
+        @include widthHeight(1.75rem, 1.75rem);
+        @include positioning(null, 0.12rem, null, null, 0.5rem);
+      }
+
+      .loaderWrapper::after {
+        @include widthHeight(0.75rem, 0.75rem);
+      }
+    }
+    @include respondTo("tablet") {
+      margin-top: 0;
+    }
+
+    @include respondTo("mobile") {
+      @include flexBox(null, center, null, null, null);
+    }
+  }
+}
+
+.customInputClass {
+  padding: 0.35rem !important;
+}

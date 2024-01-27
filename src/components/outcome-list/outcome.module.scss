@@ -1,0 +1,300 @@
+@import "@/styles/colors";
+@import "@/styles/variables";
+@import "@/styles/mixins";
+
+@mixin text-shadow($color) {
+  text-shadow:
+    1px 1px 0 $color,
+    -1px -1px 0 $color,
+    1px -1px 0 $color,
+    -1px 1px 0 $color,
+    1px 1px 0 $color;
+  color: $black;
+}
+
+.iconWrapper {
+  @include heading3;
+  @include flexBox(null, center, column, null);
+  @include text-shadow($kelly-green);
+  width: 9.125rem;
+  flex-shrink: 0;
+  align-self: stretch;
+  line-height: 120%;
+  letter-spacing: 0.5px;
+
+  @include respondTo("tablet") {
+    @include body2;
+    width: 6.5625rem;
+  }
+
+  @include respondTo("mobile") {
+    @include heading6;
+    width: 5.9375rem;
+  }
+}
+
+.numberIconWrapper {
+  @include heading5;
+  @include flexBox(null, center, column, null);
+  width: 5.8125rem;
+  flex-shrink: 0;
+  align-self: stretch;
+  text-shadow:
+    1px 1px 0 $kelly-green,
+    -1px -1px 0 $kelly-green,
+    1px -1px 0 $kelly-green,
+    -1px 1px 0 $kelly-green,
+    1px 1px 0 $kelly-green;
+  color: $black;
+  line-height: 120%;
+
+  @include respondTo("tablet") {
+    width: 6.5625rem;
+  }
+
+  @include respondTo("mobile") {
+    width: 7.25rem;
+  }
+}
+
+.bottomWrapper {
+  @include widthHeight(100%, 0.093rem);
+
+  &.line-color {
+    @include gradient(
+      "linear",
+      null,
+      90deg,
+      null,
+      currentColor 0%,
+      $black 100%
+    );
+  }
+
+  &.line-yellow {
+    @extend .line-color;
+    color: $new-yellow;
+  }
+
+  &.line-red {
+    @extend .line-color;
+    color: $red-300;
+  }
+
+  &.line-green {
+    @extend .line-color;
+    color: $green-200;
+  }
+
+  &.line-blue {
+    @extend .line-color;
+    color: $blue-50;
+  }
+
+  &.line-white {
+    @extend .line-color;
+    color: $white;
+  }
+}
+
+.contentWrapper {
+  @include flexBox(flex-start, flex-start, column, 0.5rem);
+  line-height: 150%;
+  color: $light-grey-100;
+
+  @include respondTo("tablet") {
+    @include body3;
+  }
+
+  @include respondTo("mobile") {
+    @include subtitle4;
+  }
+
+  .title-color {
+    color: inherit;
+  }
+
+  .subTitle-color {
+    @extend .title-color;
+    @include subtitle4();
+  }
+
+  .title-yellow {
+    @extend .title-color;
+    color: $new-yellow;
+  }
+
+  .title-blue {
+    @extend .title-color;
+    color: $blue-50;
+  }
+
+  .title-red {
+    @extend .title-color;
+    color: $red-300;
+  }
+
+  .title-green {
+    @extend .title-color;
+    color: $green-200;
+  }
+
+  .title-white {
+    @extend .title-color;
+    color: $white;
+  }
+
+  .subTitle-yellow {
+    @extend .subTitle-color;
+    color: $new-yellow;
+  }
+
+  .subTitle-blue {
+    @extend .subTitle-color;
+    color: $blue-50;
+  }
+
+  .subTitle-red {
+    @extend .subTitle-color;
+    color: $red-300;
+  }
+
+  .subTitle-green {
+    @extend .subTitle-color;
+    color: $green-200;
+  }
+
+  .subTitle-white {
+    @extend .subTitle-color;
+    color: $white;
+  }
+}
+
+.multipeOutcomeLayout {
+  @include flexBox(center, null, row, null);
+  width: 100%;
+  align-self: stretch;
+  padding: 1.5rem 0;
+
+  @include respondTo("mobile") {
+    @include flexBox(center, flex-start, row, null);
+  }
+
+  @include respondTo("tablet") {
+    min-height: 8.35rem;
+  }
+}
+
+.singleOutcomeLayout {
+  @include flexBox(center, null, row, 1rem);
+  @include border($light-black-blue, 0.125rem, solid);
+  padding: 1rem;
+  border-radius: 1.5rem;
+  width: 100%;
+  background: $dark-gray-100;
+  align-self: stretch;
+
+  @include respondTo("tablet") {
+    border-radius: 1rem;
+  }
+
+  @include respondTo(mobile) {
+    padding: 1rem 1rem;
+  }
+  .contentWrapper {
+    display: block;
+    word-wrap: break-word;
+    overflow: hidden;
+  }
+}
+
+.multipleOutcomeWrapper {
+  @include flexBox(flex-start, flex-start, column, null, wrap);
+  @include respondTo("tablet") {
+    @include flexBox(null, null, row, 1.5rem, wrap);
+  }
+  @include respondTo("mobile") {
+    @include flexBox(null, null, column, 1.5rem);
+  }
+}
+
+.singleOutcomeWrapper {
+  @include flexBox(flex-start, flex-start, column, 1.5rem, wrap);
+  @include respondTo("tablet") {
+    @include flexBox(null, null, row, 1.5rem, wrap);
+  }
+  @include respondTo("mobile") {
+    @include flexBox(null, null, column, 1.5rem);
+  }
+}
+
+.containerWrapper {
+  @include respondTo("mobile") {
+    row-gap: 0rem !important;
+    column-gap: 0rem !important;
+  }
+  @include respondTo("tablet") {
+    row-gap: 1.12rem;
+    column-gap: 1rem;
+  }
+}
+
+.singleContainerWrapper {
+  row-gap: 1.5rem;
+  @include respondTo("tablet") {
+    row-gap: 1.12rem;
+    column-gap: 1rem;
+  }
+}
+
+.number-text-blue {
+  @include text-shadow($blue-50);
+}
+.number-text-green {
+  @include text-shadow($green-200);
+}
+.number-text-yellow {
+  @include text-shadow($new-yellow);
+}
+.number-text-red {
+  @include text-shadow($red-300);
+}
+.number-text-white {
+  @include text-shadow($white);
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animatedElement {
+  animation: fadeIn 0.5s ease;
+  animation-fill-mode: both;
+}
+
+.animatedElement:nth-child(1) {
+  animation-delay: 0.4s;
+}
+
+.animatedElement:nth-child(2) {
+  animation-delay: 0.8s;
+}
+
+.animatedElement:nth-child(3) {
+  animation-delay: 1.2s;
+}
+
+.animatedElement:nth-child(4) {
+  animation-delay: 1.6s;
+}
+
+.animatedElement:nth-child(5) {
+  animation-delay: 2s;
+}

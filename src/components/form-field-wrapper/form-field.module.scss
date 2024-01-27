@@ -1,0 +1,20 @@
+@import "@/styles/colors";
+@import "@/styles/variables";
+@import "@/styles/mixins";
+
+.inputWrapper {
+  @include flexBox(null, null, column, 0.25rem, null);
+  color: $grey-100;
+  line-height: 1.31rem;
+  padding: 0;
+
+  .errorText {
+    @include widthHeight(auto, 1.12rem);
+    @include respondTo("mobile") {
+      @include widthHeight(auto, 1.5rem);
+    }
+    @include respondTo("extraSmall") {
+      @include widthHeight(auto, auto);
+    }
+  }
+}

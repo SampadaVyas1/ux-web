@@ -1,0 +1,116 @@
+@import "@/styles/colors.scss";
+@import "@/styles/mixins.scss";
+
+.homepageWrapper {
+  .heroSectionWrapper {
+    background: $rgba-background-light-1;
+    .overlay {
+      @include gradient(
+        "linear",
+        null,
+        0deg,
+        null,
+        $black-russian 8.62%,
+        $rgba-gradient 93.97%
+      );
+      @include widthHeight(initial, 14.5rem);
+      margin-top: -14.5rem;
+
+      @include respondTo("mobile") {
+        @include widthHeight(initial, 3rem);
+        margin-top: -3rem;
+      }
+    }
+    .contentContainer {
+      padding-bottom: 0 !important;
+    }
+  }
+  .infoAndTiltCardWrapper {
+    background: $dark-gray-100;
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+    @include flexBox(null, null, column, 8rem);
+    @include respondTo("tablet") {
+      padding-top: 4rem;
+      padding-bottom: 4rem;
+      @include flexBox(null, null, column, 4rem);
+    }
+    @include respondTo("mobile") {
+      padding-top: 4rem;
+      padding-bottom: 4rem;
+      @include flexBox(null, null, column, 4rem);
+    }
+  }
+  .numberCardWrapper {
+    background: $rgba-background-light-1;
+    padding: 8rem 0rem 8rem 0;
+    @include respondTo("tablet") {
+      padding: 4rem 0rem 4rem;
+    }
+    @include respondTo("mobile") {
+      padding: 4rem 0rem 4rem;
+    }
+    .heading {
+      margin-bottom: 4rem;
+      @include respondTo("tablet") {
+        margin-bottom: 2.5rem;
+      }
+      @include respondTo("mobile") {
+        margin-bottom: 1.5rem;
+      }
+    }
+  }
+  .scrollWrapper {
+    background: $dark-gray-100;
+    padding: 8rem 0rem;
+    @include respondTo("tablet") {
+      padding: 4rem 0rem;
+    }
+    @include respondTo("mobile") {
+      padding: 4rem 0rem;
+    }
+  }
+
+  .clientTestimonialWrapper {
+    background: $rgba-background-light-1;
+    padding: 8rem 0rem;
+    @include respondTo("tablet") {
+      padding: 4rem 0rem;
+    }
+    @include respondTo("mobile") {
+      padding: 4rem 0rem;
+    }
+  }
+
+  .formContainer {
+    background: $dark-gray-100;
+    padding: 8rem 0 8rem 0;
+    @include respondTo("tablet") {
+      padding: 8rem 0rem 7.3rem;
+    }
+    @include respondTo("mobile") {
+      padding: 0rem 0rem 4rem;
+    }
+  }
+  .formGrids {
+    @include widthHeight(null, inherit !important);
+  }
+  .formContainer > :first-child {
+    @include respondTo("mobile") {
+      padding: 0;
+    }
+  }
+}
+.headingColor {
+  color: $grey-100;
+}
+.gridWrapper {
+  @include respondTo("tablet") {
+    margin: 0 1.5rem;
+    @include widthHeight(calc(100% - 3rem) !important, null);
+  }
+  @include respondTo("mobile") {
+    margin: 0 1rem;
+    @include widthHeight(calc(100% - 2rem) !important, null);
+  }
+}

@@ -1,0 +1,26 @@
+@import "@/styles/variables.scss";
+@import "@/styles/mixins.scss";
+@import "@/styles/colors.scss";
+
+.backToTopWrapper {
+  @include flexBox(center, null, row, 1rem, null);
+  @include positioning(relative, null, null, null, null);
+  z-index: 5;
+  width: max-content;
+  float: right;
+  cursor: pointer;
+
+  .content {
+    color: $light-grey;
+  }
+
+  .arrowWrapper {
+    @include flexBox(center, center, null, null, null);
+    padding: 0.438rem;
+    cursor: pointer;
+    border-radius: 279.22688rem;
+    @include border($blue-primary, 0.0313rem, solid);
+    background: $dark-gray-100;
+    backdrop-filter: blur(1.0625rem);
+  }
+}

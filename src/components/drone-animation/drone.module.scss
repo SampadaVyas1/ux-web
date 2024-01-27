@@ -1,0 +1,159 @@
+@import "@/styles/mixins";
+@import "@/styles/colors";
+
+@mixin droneAnimation($duration, $delay: 0s) {
+  position: absolute;
+  bottom: 0;
+  margin-left: -0.188rem;
+  z-index: 10;
+  animation: keyFrameMove $duration infinite $delay !important;
+  opacity: 0;
+}
+
+.droneContainer {
+  height: 100% !important;
+  @include positioning(absolute, 0, 0, 0, 0);
+  z-index: -1;
+  @include widthHeight(74rem, 0);
+  margin: 0 auto;
+  @include gridProps(repeat(12, 1fr), null, 1rem, null, null, null);
+
+  @include respondTo("tablet") {
+    width: 100%;
+    margin: 0;
+    padding: 0 1.5rem;
+    @include gridProps(repeat(8, 1fr), null, 1rem, null, null, null);
+  }
+
+  @include respondTo("mobile") {
+    width: 100%;
+    margin: 0;
+    padding: 0 1rem;
+    @include gridProps(repeat(4, 1fr), null, 1rem, null, null, null);
+  }
+}
+
+.droneItem {
+  text-align: right !important;
+}
+
+.leftPink {
+  @include droneAnimation(10s, 0s);
+  margin-left: -0.625rem !important;
+}
+
+.rightGreenDrone {
+  @include droneAnimation(10s, 0s);
+  @include respondTo("mobile") {
+    display: none;
+  }
+}
+
+.leftGreenDrone {
+  @include droneAnimation(10s, 0s);
+}
+
+.leftWhiteDrone {
+  @include droneAnimation(20s, 0s);
+  @include respondTo("tablet") {
+    display: none;
+  }
+}
+
+.rightGreenDrone1 {
+  @include droneAnimation(19s, 26s);
+  @include respondTo("mobile") {
+    @include droneAnimation(14s, 0s);
+  }
+}
+.rightGreenDrone3 {
+  @include droneAnimation(29s, 40s);
+  display: none;
+  @include respondTo("tablet") {
+    display: block;
+  }
+  @include respondTo("mobile") {
+    display: none;
+  }
+}
+.rightGreenDrone4 {
+  @include droneAnimation(10s, 52s);
+  @include respondTo("mobile") {
+    display: none;
+  }
+}
+.rightGreenDrone5 {
+  @include droneAnimation(15s, 10s);
+  @include respondTo("tablet") {
+    display: none;
+  }
+  @include respondTo("mobile") {
+    display: none;
+  }
+}
+
+.rightWhiteDrone1 {
+  @include droneAnimation(12s, 50s);
+  margin-left: -0.156rem !important;
+  @include respondTo("mobile") {
+    @include droneAnimation(12s, 5s);
+  }
+}
+.rightWhiteDrone1InLetsTalk {
+  @include droneAnimation(10s, 5s);
+  margin-left: -0.156rem !important;
+  @include respondTo("mobile") {
+    @include droneAnimation(12s, 5s);
+  }
+}
+
+.rightWhiteDrone2 {
+  @include droneAnimation(48s, 15s);
+}
+.rightWhiteDrone3 {
+  @include droneAnimation(55s, 29s);
+  @include respondTo("mobile") {
+    display: none;
+  }
+}
+.rightGreenDrone2 {
+  @include droneAnimation(80s, 10s);
+}
+.rightGreenDrone6 {
+  display: none;
+}
+
+@keyframes keyFrameMove {
+  0% {
+    bottom: 0%;
+    opacity: 0;
+  }
+
+  5% {
+    opacity: 0.4;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  90% {
+    opacity: 1;
+  }
+
+  91% {
+    opacity: 0.8;
+  }
+
+  95% {
+    opacity: 0.4;
+  }
+
+  100% {
+    bottom: 100%;
+    opacity: 0;
+  }
+}
+.trackLineWrapper {
+  @include positioning(relative, null, null, null, null);
+}

@@ -1,0 +1,61 @@
+@import "@/styles/colors.scss";
+@import "@/styles/mixins.scss";
+
+.breadCrumbsWrapper {
+  padding-bottom: 3.5rem;
+
+  @include respondTo("mobile") {
+    padding-bottom: 2.5rem;
+  }
+}
+
+.contentLayout {
+  @include flexBox(center, space-between, row, 1rem);
+
+  @include respondTo("mobile") {
+    @include flexBox(flex-start, flex-start, column, 2.5rem);
+  }
+
+  .buttonWrapper {
+    @include widthHeight(null, 2.25rem);
+  }
+
+  .jobDetailsLayout {
+    @include flexBox(flex-start, flex-start, column, 0.5rem);
+
+    .headingWrapper {
+      @include respondTo("mobile") {
+        font-size: 2rem;
+      }
+    }
+
+    .jobDetails {
+      @include flexBox(flex-start, flex-start, row, 0.5rem);
+
+      .details {
+        color: $gold-ochre;
+        font-weight: 400;
+        line-height: 150%;
+
+        &:not(:first-child)::before {
+          content: "|";
+          color: $grey-500;
+          padding-right: 0.5rem;
+        }
+
+        @include respondTo("extraSmall") {
+          @include positioning(relative, null, null, null, null);
+          margin-right: 0.5rem;
+
+          &:not(:first-child)::before {
+            @include positioning(absolute, null, null, null, -0.5rem);
+            content: "";
+            @include widthHeight(auto, 100%);
+            background: $grey-500;
+            padding-right: 0.1rem;
+          }
+        }
+      }
+    }
+  }
+}

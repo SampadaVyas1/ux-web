@@ -1,0 +1,44 @@
+@import "@/styles/colors";
+@import "@/styles/mixins";
+
+.outerWrapper {
+  @include widthHeight(74rem, null);
+  margin: 0 auto;
+  @include respondTo("tablet") {
+    @include widthHeight(100%, null);
+  }
+  @include respondTo("mobile") {
+    @include widthHeight(100%, null);
+    margin: 0 auto;
+  }
+}
+
+.wrapper {
+  @include flexBox(center, center, column, null, null);
+  padding: 11.25rem 0 8rem;
+  @include respondTo("mobile") {
+    padding: 7.5rem 0 4rem;
+  }
+}
+
+.content {
+  @include flexBox(center, center, column, 0.5rem, null);
+  padding: 2rem 0 3rem;
+
+  .title {
+    line-height: 120%;
+  }
+
+  .description {
+    text-align: center;
+    line-height: 150%;
+    color: $light-grey-100;
+  }
+}
+
+.backBtn {
+  cursor: pointer;
+  padding: 0.5rem 1.875rem;
+  border: none;
+  @include widthHeight(auto, 1.25rem);
+}

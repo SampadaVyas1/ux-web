@@ -1,0 +1,41 @@
+@import "@/styles/mixins";
+@import "@/styles/variables";
+@import "@/styles/colors";
+
+.captchaWrapper {
+  @include flexBox(center, center, null, null, null);
+  @include widthHeight(null, 3rem);
+  column-gap: 0.75rem;
+  padding: 0.75rem;
+  @include border($black-russian, 0.06rem, solid);
+  background: $black-russian;
+  color: $pale-grey;
+  border-radius: 0.5rem;
+  @include respondTo("mobile") {
+    @include widthHeight(fit-content, null);
+  }
+  @include respondTo("extraSmall") {
+    @include widthHeight(65%, null);
+  }
+
+  .checkbox {
+    @include positioning(relative, null, null, null, null);
+  }
+
+  @include respondTo("mobile") {
+    @include flexBox(center, flex-start, null, null, null);
+  }
+
+  .captcha {
+    display: none;
+    @include positioning(relative, null, null, null, null);
+  }
+
+  .captchCheckbox {
+    cursor: pointer;
+  }
+}
+.fieldCheckBox {
+  @include widthHeight(1.5rem, 1.5rem);
+  @include flexBox(center, center, null, null, null);
+}

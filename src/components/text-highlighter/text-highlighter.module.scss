@@ -1,0 +1,31 @@
+@import "@/styles/colors";
+
+.highlightedText {
+  color: $primary-blue;
+}
+.animatingText {
+  display: inline-block;
+  opacity: 0;
+  animation: anim-lineUp 0.7s linear;
+  animation-fill-mode: forwards;
+  animation-delay: 0s;
+}
+@for $ind from 1 through (50) {
+  .animatingText:nth-child(#{$ind}) {
+    animation-delay: calc(#{0.2s} * #{$ind - 1});
+  }
+}
+
+@keyframes anim-lineUp {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  60% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}

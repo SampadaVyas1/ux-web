@@ -1,0 +1,99 @@
+@import "@/styles/variables.scss";
+@import "@/styles/colors.scss";
+@import "@/styles/mixins.scss";
+
+.overviewWrapper {
+  @include positioning(relative, null, null, null, null);
+  background: $dark-gray-100;
+  padding: 8rem 0;
+
+  @include respondTo("tablet") {
+    padding: 4rem 0;
+  }
+
+  @include respondTo("mobile") {
+    padding: 4rem 0;
+  }
+}
+
+.challengeWrapper {
+  @include positioning(relative, null, null, null, null);
+  background: $dark-gray-100;
+  padding: 8rem 0;
+
+  @include respondTo("tablet") {
+    padding: 4rem 0;
+  }
+
+  @include respondTo("mobile") {
+    padding: 4rem 0;
+  }
+}
+
+.typographyWrapper {
+  @include positioning(relative, null, null, null, null);
+  background: $dark-gray-100;
+}
+
+.outcomeLayoutWrapper {
+  @include positioning(relative, null, null, null, null);
+  background: $dark-gray-100;
+  padding: 8rem 0;
+
+  @include respondTo("tablet") {
+    padding: 4rem 0;
+  }
+
+  @include respondTo("mobile") {
+    padding: 4rem 0;
+  }
+}
+
+.wireFramwWrapper {
+  padding-top: 8rem;
+  background: $dark-gray-100;
+
+  @include respondTo("tablet") {
+    padding-top: 4rem;
+  }
+
+  @include respondTo("mobile") {
+    padding-top: 4rem;
+  }
+}
+
+.visualWrapper {
+  padding-top: 8rem;
+
+  @include respondTo("tablet") {
+    padding-top: 4rem;
+  }
+
+  @include respondTo("mobile") {
+    padding-top: 4rem;
+  }
+}
+
+.formContainer {
+  background: $rgba-background-light-1;
+  @include positioning(relative, null, null, null, null);
+  padding: 8rem 0;
+
+  @include respondTo("tablet") {
+    padding: 8rem 0;
+  }
+  @include respondTo("mobile") {
+    padding: 0rem 0rem 4rem;
+  }
+}
+
+.formContainer > :first-child {
+  @include respondTo("mobile") {
+    padding: 0;
+  }
+}
+
+.otherWorkWrapper {
+  @include positioning(relative, null, null, null, null);
+  background: $dark-gray-100;
+}

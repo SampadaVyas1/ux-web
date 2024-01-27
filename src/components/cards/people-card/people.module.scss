@@ -1,0 +1,35 @@
+@import "@/styles/mixins";
+@import "@/styles/variables";
+@import "@/styles/colors";
+
+.cardWrapper {
+  @include flexBox(null, null, column, null, null);
+  .customTiltCard {
+    gap: 0;
+  }
+  .profileImage {
+    gap: 0 !important;
+    margin-bottom: 1rem;
+    @include respondTo("tablet") {
+      @include widthHeight(100%, null);
+    }
+    @include respondTo("mobile") {
+      @include widthHeight(100%, null);
+    }
+  }
+  .personName {
+    @include maxWidthHeight(max-content, 1.5rem);
+    color: $white;
+    @include respondTo("mobile") {
+      @include maxWidthHeight(max-content, auto);
+    }
+  }
+  .personDesignation {
+    @include maxWidthHeight(max-content, 1.12rem);
+    color: $grey-100;
+  }
+  .linkedInBtn {
+    @include flexBox(center, center, column, 0.12rem, null);
+    cursor: pointer;
+  }
+}

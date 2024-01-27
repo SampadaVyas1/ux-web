@@ -1,0 +1,250 @@
+@import "@/styles/colors";
+@import "@/styles/mixins";
+@import "@/styles/variables";
+
+@mixin common() {
+  @include positioning(absolute, 50%, null, null, 0);
+  user-select: none;
+  cursor: none;
+}
+
+.mainContainer {
+  @include flexBox(center, center, column, null, null);
+}
+
+.wrapper {
+  @include flexBox(null, null, column, null, null);
+  @include respondTo("mobile") {
+    row-gap: 1rem;
+  }
+
+  .container {
+    @include gridProps(repeat(2, 1fr), null, 7.25rem, null, null, null);
+
+    @include respondTo("tablet") {
+      @include gridProps(repeat(1, 1fr), null, null, null, null, null);
+    }
+
+    @include respondTo("mobile") {
+      @include gridProps(repeat(1, 1fr), null, null, null, null, null);
+    }
+
+    margin: 4rem 0 5.8rem 0;
+
+    @include respondTo("tablet") {
+      margin-top: 2.5rem;
+    }
+    @include respondTo("mobile") {
+      margin-top: 1.5rem;
+    }
+
+    .testimonyContainer {
+      @include flexBox(null, null, column, null, null);
+      @include positioning(relative, 4.37rem, null, null, null);
+
+      @include respondTo("mobile") {
+        @include positioning(relative, 0, null, null, null);
+      }
+      .content {
+        @include flexBox(null, null, column, null, null);
+
+        .comma {
+          @include positioning(absolute, -3.12rem, null, null, null);
+          z-index: 0;
+          @include respondTo("mobile") {
+            @include positioning(absolute, -1.12rem, null, null, 0.5rem);
+            @include widthHeight(2.75rem, 2.56rem);
+          }
+        }
+
+        .carousalContext {
+          @include widthHeight(30.25rem, null);
+          z-index: 1;
+          @include respondTo("tablet") {
+            @include widthHeight(100%, null);
+          }
+          @include respondTo("mobile") {
+            @include widthHeight(100%, null);
+          }
+        }
+
+        .testimony {
+          line-height: 1.87rem;
+          color: $light-grey-100;
+          z-index: 7;
+        }
+
+        .name {
+          line-height: 1.87rem;
+          color: $white;
+          margin-top: 1.5rem;
+          margin-bottom: 0.25rem;
+          @include respondTo("mobile") {
+            @include subtitle3;
+          }
+        }
+
+        .designation {
+          line-height: 1.5rem;
+          color: $grey-100;
+          @include respondTo("mobile") {
+            @include heading3;
+            font-size: $font-size-12;
+          }
+        }
+      }
+    }
+
+    .carouselContainer {
+      @include flexBox(null, null, null, null, null);
+      @include widthHeight(null, 25rem);
+      @include positioning(relative, null, null, null, null);
+      perspective: 50rem;
+      transform: translateZ(0);
+      transition: all;
+      cursor: none;
+
+      @include respondTo("tablet") {
+        top: 6.25rem;
+      }
+
+      @include respondTo("mobile") {
+        top: 0;
+      }
+
+      .listItem {
+        transition: all 0.75s linear;
+        .empImg {
+          @include widthHeight(21rem, 25.87rem);
+          @include respondTo("mobile") {
+            @include widthHeight(16.43rem, 20.18rem);
+          }
+        }
+
+        &.listItem1 {
+          @include common();
+          z-index: 0;
+          animation: movetTolast 0.65s linear;
+          @include respondTo("tablet") {
+            left: 18%;
+          }
+          @include respondTo("mobile") {
+            left: 0;
+          }
+
+          &.reverse {
+            animation: none;
+          }
+          &.bottomRight {
+            @include transformSlide(-50%, 0, 0%, 0deg, -1.009deg);
+          }
+          &.topRight {
+            @include transformSlide(-50%, 0, 0%, 0deg, 0.991deg);
+          }
+          @keyframes movetTolast {
+            0% {
+              @include transformSlide(-50%, 0, 0, 90deg, 0);
+            }
+
+            50% {
+              @include transformSlide(-50%, -5rem, -90%, -20deg, 0);
+            }
+
+            100% {
+              @include transformSlide(-50%, -5rem, -90%, 20deg, 0);
+            }
+          }
+        }
+
+        &.listItem2 {
+          @include transformSlide(-40%, -1.25rem, 30%, 5.519deg, 0);
+          filter: brightness(0.6);
+          @include common();
+          z-index: -1;
+          @include respondTo("tablet") {
+            left: 22%;
+          }
+          @include respondTo("mobile") {
+            left: 0;
+          }
+        }
+
+        &.listItem3 {
+          @include transformSlide(-40%, -6.25rem, 45%, -15deg, 0);
+          filter: brightness(0.4);
+          @include common();
+          z-index: -2;
+          animation: none;
+          @include respondTo("tablet") {
+            left: 25%;
+          }
+          @include respondTo("mobile") {
+            left: 0;
+          }
+
+          &.reverse {
+            animation: movetToFirst 0.65s linear;
+          }
+
+          @keyframes movetToFirst {
+            0% {
+              @include transformSlide(-50%, -37.5rem, -150%, 45deg, 0);
+            }
+
+            50% {
+              @include transformSlide(-30%, -31.25rem, 50%, -50deg, 0);
+            }
+
+            100% {
+              @include transformSlide(-50%, 0, 0, 0, 0);
+            }
+          }
+        }
+      }
+      .separator {
+        @include widthHeight(5.5rem, 0.12rem);
+        @include positioning(absolute, null, null, -5.75rem, 50%);
+        z-index: 2;
+        @include gridProps(repeat(3, 1fr), null, 0.5rem, null, null);
+        @include respondTo("mobile") {
+          left: 40%;
+        }
+        .inactive {
+          border-radius: 0.12rem;
+          background: $shadow-gray;
+        }
+
+        .active {
+          border-radius: 0.12rem;
+          background: $white-smoke;
+        }
+      }
+    }
+  }
+}
+.customStylingOnTitle {
+  margin-left: -0.3rem;
+}
+.customStyleOnCarouselContainer {
+  left: -0.7rem !important;
+}
+
+.customStyleOnCarouselImage {
+  @include widthHeight(13.43rem !important, 17.18rem !important);
+}
+.slidesWrapper {
+  @include widthHeight(80%, 31.25rem);
+  margin: 0 auto;
+  @include respondTo("tablet") {
+    @include widthHeight(60%, 31.25rem);
+  }
+  @include respondTo("mobile") {
+    @include widthHeight(70%, 31.25rem);
+  }
+}
+
+.empImg {
+  @include respondTo("mobile") {
+    @include widthHeight(18.75rem, null);
+  }
+}

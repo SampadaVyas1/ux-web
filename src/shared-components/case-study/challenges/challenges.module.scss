@@ -1,0 +1,25 @@
+@import "@/styles/variables.scss";
+@import "@/styles/colors.scss";
+@import "@/styles/mixins.scss";
+
+.challengesStyle {
+  row-gap: 4rem;
+
+  @include respondTo("tablet") {
+    row-gap: 2.5rem;
+  }
+
+  @include respondTo("mobile") {
+    row-gap: 2.5rem;
+  }
+}
+.title {
+  @include respondTo("mobile") {
+    font-size: 2.4rem !important;
+  }
+}
+.customStylingOnTitle {
+  @include respondTo("small") {
+    font-size: $font-size-40 !important;
+  }
+}

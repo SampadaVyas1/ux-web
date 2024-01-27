@@ -1,0 +1,42 @@
+@import "@/styles/colors";
+@import "@/styles/mixins";
+
+.sharedCursorStyles {
+  transform: translate(-50%, -50%);
+  position: absolute;
+  overflow: hidden;
+  pointer-events: none;
+  border-radius: 50%;
+  z-index: 12;
+}
+
+.cursorCircle {
+  border: 0.063rem solid $white;
+  @include widthHeight(2.2rem, 2.2rem);
+  @extend .sharedCursorStyles;
+  @include respondTo("tablet") {
+    display: none;
+  }
+}
+
+.cursorDot {
+  background-color: $white;
+  @include widthHeight(0.3rem, 0.3rem);
+  @extend .sharedCursorStyles;
+  @include respondTo("tablet") {
+    display: none;
+  }
+}
+
+.bigCircle {
+  @include widthHeight(3.75rem, 3.75rem);
+  transition: 0.2s;
+  transition-timing-function: linear;
+  @include respondTo("tablet") {
+    display: none;
+  }
+}
+
+.cursorDotNone {
+  display: none;
+}

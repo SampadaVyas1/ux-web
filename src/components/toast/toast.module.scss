@@ -1,0 +1,38 @@
+@import "@/styles/colors";
+@import "@/styles/variables";
+@import "@/styles/mixins";
+
+.toastWrapper{
+    @include flexBox(flex-start, flex-start, column, 0.5rem);
+    padding: 1rem;
+    width: 23.4375rem;
+
+    border-radius: 0.25rem;
+    background: $black-russian;
+    box-shadow: 0rem 0.25rem 0.25rem 0rem $black-400;
+
+    .contentLayout{
+        @include flexBox(flex-start, space-between, row, 0.5rem);
+        align-self: stretch;
+
+        .titleLayout{
+            @include flexBox(flex-start, flex-start, row, 0.5rem);
+
+            .title{
+                font-size: 400;
+            }
+        }
+    }
+
+    .message{
+        color: $blue-grey-300;
+        font-size: 0.75rem;
+        padding: 0 2rem;
+    }
+
+}
+
+.icon {
+    @include widthHeight(1.5rem, 1.5rem);
+    cursor: pointer;
+}

@@ -1,0 +1,57 @@
+@import "@/styles/colors.scss";
+@import "@/styles/mixins.scss";
+
+.heroSectionWrapper {
+  background: $rgba-background-light-1;
+  .customClassHeroSection {
+    @include respondTo("tablet") {
+      padding-bottom: 4rem;
+    }
+    @include respondTo("mobile") {
+      padding-bottom: 0rem;
+    }
+  }
+  .customStylingOnHeroSectionImage {
+    @include respondTo("mobile") {
+      margin-left: -0.3rem;
+    }
+  }
+  .customImageContainerCard {
+    @include respondTo("mobile") {
+      margin-top: -0.5rem !important;
+    }
+  }
+  .customInfoClassCard {
+    @include respondTo("tablet") {
+      width: calc(100% - 2.5rem) !important;
+    }
+
+    @include respondTo("mobile") {
+      width: 100% !important;
+    }
+  }
+}
+
+.carousalWrapper {
+  padding: 8rem 0;
+  background: $dark-gray-100;
+
+  @include respondTo("tablet") {
+    padding: 4rem 0 7rem 0rem;
+  }
+
+  @include respondTo("mobile") {
+    padding: 4rem 0;
+  }
+}
+
+.hiringNowWrapper {
+  background: $rgba-background-light-1;
+  padding: 8rem 0;
+  @include respondTo("tablet") {
+    padding: 4rem 0;
+  }
+  @include respondTo("mobile") {
+    padding: 4rem 0;
+  }
+}

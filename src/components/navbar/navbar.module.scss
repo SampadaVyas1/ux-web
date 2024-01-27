@@ -1,0 +1,243 @@
+@import "@/styles/colors";
+@import "@/styles/mixins";
+
+@mixin activeItemProp {
+  color: $white;
+  @include positioning(relative);
+
+  &::after {
+    content: "";
+    @include widthHeight(calc(100% - 1rem), $border-width);
+    @include positioning(absolute, null, null, 0, 0);
+    transform: scaleX(1);
+    background-color: $white;
+    transform-origin: bottom left;
+    transition: transform 0.25s ease-out;
+    @include respondTo("mobile") {
+      @include widthHeight(calc(110% - 1rem), $border-width);
+    }
+    @include respondTo("mobile") {
+      transform: scaleX(0.95);
+    }
+  }
+}
+
+@mixin menuHover {
+  display: inline-block;
+  position: relative;
+
+  &:hover {
+    color: $white;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    @include widthHeight(100%, 0.063rem);
+    transform: scaleX(0);
+    bottom: 0;
+    left: 0;
+    background-color: $white;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+    @include respondTo("mobile") {
+      @include widthHeight(110%, 0.063rem);
+    }
+  }
+
+  &:hover:after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+    @include respondTo("mobile") {
+      transform: scaleX(0.95);
+    }
+  }
+}
+
+@mixin listItems {
+  text-transform: uppercase;
+  @include subtitle1;
+  line-height: 1.3125rem;
+  margin-right: 1rem;
+  color: $light-grey;
+  font-weight: 700;
+  border-bottom: $border-width solid $transparant;
+  display: block;
+  height: 1.5rem;
+  font-family: $figtree-bold !important;
+
+  @include menuHover;
+}
+
+@mixin menuListDropdown {
+  .menuListDropDownWrapper {
+    height: $height-full;
+    background: $ebony-black;
+    position: fixed;
+    width: 100%;
+    top: 4rem;
+    left: 0;
+    padding: 0px;
+    margin: 0px;
+    z-index: 8;
+
+    .menuListDevice {
+      list-style-type: none;
+      padding-left: 2rem;
+      @include respondTo("mobile") {
+        padding-left: 1.5rem;
+      }
+
+      .items {
+        width: 100%;
+        cursor: pointer;
+        text-align: left;
+        padding: 0.85rem 0;
+
+        .itemText {
+          width: fit-content;
+          @include listItems;
+          @include respondTo("mobile") {
+            width: fit-content;
+          }
+        }
+      }
+    }
+  }
+
+  .drawerIcon {
+    text-align: right;
+    @include flexBox(center, flex-end, null, null, null);
+    @include respondTo("mobile") {
+      @include positioning(absolute, null, 1rem, null, null);
+    }
+    .mobileMenuAndHamBurgerWrapper {
+      @include flexBox(center, flex-end, null, 1rem, null);
+    }
+  }
+}
+
+.nav {
+  width: 100%;
+  position: fixed;
+  backdrop-filter: blur(1.5rem);
+  z-index: 12;
+  @include backgroundOpacity($ebony-black, "a5");
+
+  .containerWrapper {
+    height: 100%;
+    width: auto;
+    @include respondTo("tablet") {
+      padding: 1rem 0;
+    }
+
+    @include respondTo("mobile") {
+      padding: 1rem 0;
+    }
+
+    .companyLogo {
+      text-align: left;
+      align-self: center;
+      width: fit-content;
+      @include flexBox(center, null, null, null, null);
+      .logo {
+        margin: 0.37rem 0.38rem 0.39rem 0.37rem;
+        cursor: pointer;
+      }
+    }
+
+    .menuContainer {
+      @include flexBox(center, flex-end);
+      @include subtitle5;
+      list-style-type: none;
+      cursor: pointer;
+      @include respondTo("tablet") {
+        cursor: unset;
+      }
+      @include respondTo("mobile") {
+        cursor: unset;
+      }
+
+      .menuItems {
+        @include listItems;
+        padding: 0rem 0.25rem;
+        margin-right: 0;
+        padding-right: 1.25rem;
+        &::after {
+          @include widthHeight(calc(100% - 1rem), 0.063rem);
+          @include respondTo("mobile") {
+            @include widthHeight(calc(110% - 1rem), 0.063rem);
+          }
+        }
+      }
+    }
+
+    padding: 1rem 0.5rem;
+    @include respondTo("tablet") {
+      @include menuListDropdown();
+    }
+    @include respondTo("mobile") {
+      @include menuListDropdown();
+    }
+
+    .letsTalkBtnIcon {
+      min-width: 8.375rem;
+      @include widthHeight(null, 2.25rem);
+      @include positioning(relative);
+      @include flexBox(center, null, null, null, null);
+      @include respondTo("mobile") {
+        padding: 0.5rem;
+        min-width: 7.25rem;
+        min-height: 2rem;
+        @include widthHeight(null, 2rem);
+        @include flexBox(center, null, null, null, null);
+      }
+      .letsTalkBtnText {
+        font-family: $figtree-bold;
+        @include respondTo("mobile") {
+          line-height: 150%;
+          letter-spacing: 0.03rem;
+        }
+      }
+
+      &:hover {
+        .icon {
+          animation: skew 250ms infinite;
+          transform: rotate(-45deg);
+          animation-direction: alternate;
+        }
+      }
+    }
+
+    .activeNavItem {
+      @include listItems;
+      @include activeItemProp;
+      padding: 0rem 0.25rem;
+      margin-right: 0;
+      padding-right: 1.25rem;
+    }
+  }
+}
+.navBarItem {
+  font-weight: 700;
+  line-height: 150%;
+  letter-spacing: 0.03125rem;
+}
+
+.navItemBigCircleContainer {
+  @include widthHeight(null, 1rem);
+}
+
+.navDrawerWrapper {
+  background: $ebony-black;
+}
+
+@keyframes skew {
+  0% {
+    transform: rotate(-45deg);
+  }
+
+  100% {
+    transform: rotate(45deg);
+  }
+}

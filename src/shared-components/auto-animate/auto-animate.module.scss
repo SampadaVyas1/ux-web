@@ -1,0 +1,203 @@
+@import "@/styles/colors.scss";
+@import "@/styles/mixins.scss";
+
+$transition-time: 2s;
+$border-width: 0.125rem;
+
+$initialX1: 1rem;
+$initialY1: 0.5rem;
+$initialX2: calc(100% - 0.5rem);
+$initialY2: 0rem;
+$initialX3: calc(100% - 0.5rem);
+$initialY3: calc(100% - 2rem);
+$initialX4: 0.25rem;
+$initialY4: calc(100% - 0.5rem);
+
+$finalX1: 1rem;
+$finalY1: 1.75rem;
+$finalX2: calc(100% - 1.25rem);
+$finalY2: 0.25rem;
+$finalX3: calc(100% - 2.5rem);
+$finalY3: calc(100% - 0.25rem);
+$finalX4: 2.5rem;
+$finalY4: calc(100% - 1.25rem);
+
+.componentWrapper {
+  @include positioning(relative);
+  .border {
+    @include widthHeight(100%, 100%);
+    background: repeating-linear-gradient(
+      $red-300 0rem,
+      $red-300 0.5rem,
+      $primary 0.5rem,
+      $primary 1rem
+    );
+    transition: clip-path $transition-time;
+
+    &Initial {
+      clip-path: polygon(
+        $initialX1 $initialY1,
+        $initialX2 $initialY2,
+        $initialX3 $initialY3,
+        $initialX4 $initialY4
+      );
+    }
+    &Final {
+      clip-path: polygon(
+        $finalX1 $finalY1,
+        $finalX2 $finalY2,
+        $finalX3 $finalY3,
+        $finalX4 $finalY4
+      );
+    }
+  }
+  .horizontalBorder {
+    @include positioning(absolute, 0, null, null, 0);
+    transform: scaleX(0.98);
+    background: repeating-linear-gradient(
+      to left,
+      $red-300 0rem,
+      $red-300 0.5rem,
+      $primary 0.5rem,
+      $primary 1rem
+    );
+  }
+  .polygon {
+    @include widthHeight(100%);
+    @include positioning(absolute, 0, null, null, 0);
+    transition: clip-path $transition-time;
+    &Bg {
+      background: $black;
+    }
+
+    &Initial {
+      clip-path: polygon(
+        calc($initialX1 + $border-width) calc($initialY1 + $border-width),
+        calc($initialX2 - $border-width) calc($initialY2 + $border-width),
+        calc($initialX3 - $border-width) calc($initialY3 - $border-width),
+        calc($initialX4 + $border-width) calc($initialY4 - $border-width)
+      );
+    }
+    &Final {
+      clip-path: polygon(
+        calc($finalX1 + $border-width) calc($finalY1 + $border-width),
+        calc($finalX2 - $border-width) calc($finalY2 + $border-width),
+        calc($finalX3 - $border-width) calc($finalY3 - $border-width),
+        calc($finalX4 + $border-width) calc($finalY4 - $border-width)
+      );
+    }
+  }
+}
+.mt24 {
+  margin-top: 3rem;
+}
+
+//classes for all four circles
+.commonCircle {
+  background: $red-300;
+  @include positioning(absolute);
+  @include widthHeight(0.75rem, 0.75rem);
+  clip-path: circle(50%);
+  transition: transform $transition-time;
+}
+.top {
+  &Left {
+    top: calc(0.5rem - 0.25rem);
+    left: calc(1rem - 0.25rem);
+    &Final {
+      transform: translateY(1.25rem);
+    }
+  }
+  &Right {
+    top: calc(0rem - 0.25rem);
+    right: calc(0.5rem - 0.25rem);
+    &Final {
+      transform: translate(-0.75rem, 0.25rem);
+    }
+  }
+}
+.bottom {
+  &Right {
+    bottom: calc(2rem - 0.25rem);
+    right: calc(0.5rem - 0.25rem);
+    &Final {
+      transform: translate(-2rem, 1.75rem);
+    }
+  }
+  &Left {
+    bottom: calc(0.5rem - 0.25rem);
+    left: clac(0rem - 0.75rem);
+    &Final {
+      transform: translate(2rem, -0.75rem);
+    }
+  }
+}
+
+//classes for cursor pointer
+.cursor {
+  @include positioning(absolute);
+  transition: transform $transition-time;
+
+  &Left {
+    top: -0.75rem;
+    left: 0.75rem;
+    &Final {
+      transform: translate(0rem, 1.25rem);
+    }
+  }
+
+  &Right {
+    bottom: 0.35rem;
+    right: 0.25rem;
+    &Final {
+      transform: translate(-2rem, 1.8rem);
+    }
+  }
+}
+
+.invert {
+  transform: rotate(175deg);
+}
+
+//classes for info card
+.info {
+  @include positioning(absolute);
+  transition: transform $transition-time;
+  @include widthHeight(13.25rem);
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  background: $primary-blue;
+  color: $white;
+
+  &Left {
+    top: -3rem;
+    left: 2rem;
+    &Final {
+      transform: translate(0rem, 1.25rem);
+    }
+  }
+
+  &Right {
+    bottom: -1.75rem;
+    right: 1.25rem;
+    &Final {
+      transform: translate(-2rem, 1.75rem);
+    }
+    &Bg {
+      @include widthHeight(10rem);
+      background: $red-300;
+    }
+  }
+}
+.cardContainer {
+  padding: 1.5rem 2rem 2.25rem 2rem;
+  @include gridProps(repeat(3, 1fr), null, 1rem);
+  width: 100%;
+  @include respondTo("tablet") {
+    @include gridProps(repeat(3, 1fr), null, 1rem, 1rem);
+  }
+  @include respondTo("mobile") {
+    padding: 1.5rem 1.5rem 2.25rem 1.5rem;
+    @include gridProps(repeat(1, 1fr), null, null, 2.5rem);
+  }
+}

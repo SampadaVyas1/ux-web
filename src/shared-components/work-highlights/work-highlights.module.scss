@@ -1,0 +1,71 @@
+@import "@/styles/mixins";
+@import "@/styles/colors";
+
+.scrollComponent {
+  @include positioning(relative);
+  @include gridProps(repeat(2, 1fr), null, 1rem, 1.125rem, null, null);
+  @include respondTo("mobile") {
+    @include flexBox(center, center, column, 1rem, null);
+  }
+}
+
+.tiltImageSlider {
+  @include positioning(relative);
+  border-radius: 1.35rem;
+  @include widthHeight(auto, 26rem);
+  @include respondTo("tablet") {
+    @include widthHeight(100%, 18.69rem);
+    border-radius: 1rem;
+  }
+  @include respondTo("mobile") {
+    order: 1;
+    border-radius: 1rem;
+    @include widthHeight(100%, fit-content);
+  }
+}
+
+.viewBtnWrapper {
+  order: 4;
+  .viewBtn {
+    @include widthHeight(fit-content, auto);
+  }
+}
+
+.cursorText {
+  @include flexBox(center, center, null, null, null);
+  @include positioning(absolute, 0, 0, 0, 0);
+  line-height: 1.3rem !important;
+}
+
+.containerImage {
+  &::before {
+    content: "";
+    @include positioning(absolute, 0, null, null, 0);
+    @include widthHeight(100%, 100%);
+    @include backgroundOpacity($black-russian, "b3");
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    border-radius: 1.35rem;
+    @include respondTo("tablet") {
+      border-radius: 1rem !important;
+    }
+    @include respondTo("mobile") {
+      border-radius: 1rem !important;
+    }
+  }
+
+  &:hover::before {
+    opacity: 1;
+    z-index: 10;
+  }
+}
+.tiltcardWrapperImageSlider {
+  height: 25.5rem;
+  @include respondTo("tablet") {
+    height: 21rem;
+  }
+  @include respondTo("mobile") {
+    width: 100%;
+  }
+}

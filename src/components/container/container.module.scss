@@ -1,0 +1,16 @@
+@import "@/styles/mixins";
+
+.containerWrapper {
+  width: 100%;
+  max-width: 90rem;
+  margin: 0 auto;
+  padding: 1rem 0;
+
+  @include respondTo("mobile") {
+    padding: 1rem;
+  }
+
+  @include respondTo("tablet") {
+    padding: 1rem;
+  }
+}

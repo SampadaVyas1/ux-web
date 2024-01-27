@@ -1,0 +1,26 @@
+@import "@/styles/mixins";
+@import "@/styles/colors";
+
+.ellipse {
+  left: calc(100vw - 11.6rem) !important;
+  top: -7% !important;
+  @include widthHeight(11rem, 17.125rem);
+
+  @include respondTo("mobile") {
+    top: -6% !important;
+    left: calc(100vw - 4rem) !important;
+    @include widthHeight(5rem, 9rem);
+  }
+}
+
+.rectangle {
+  top: 35% !important;
+  left: 0% !important;
+  @include widthHeight(9.4rem, 22.2rem);
+
+  @include respondTo("mobile") {
+    top: 21% !important;
+    left: -5% !important;
+    @include widthHeight(4rem, 9rem);
+  }
+}

@@ -1,0 +1,49 @@
+@import "@/styles/mixins";
+@import "@/styles/variables";
+@import "@/styles/colors";
+
+.ourVision {
+  padding: 8rem 0;
+  row-gap: 4rem;
+  @include respondTo("tablet") {
+    padding: 4rem 0;
+    row-gap: 2.5rem;
+  }
+  @include respondTo("mobile") {
+    padding: 4rem 0;
+    row-gap: 2.5rem;
+  }
+  .titleContent {
+    @include positioning(relative, null, null, null, null);
+    .mobQuotes {
+      display: none;
+      @include respondTo("mobile") {
+        display: block;
+        @include widthHeight(2.4rem, 2.24rem);
+        @include positioning(absolute, 5rem, null, null, 0.5rem);
+      }
+    }
+    .upSetComma {
+      opacity: 0.6;
+      @include positioning(absolute, 6rem, null, null, null);
+      @include respondTo("tablet") {
+        @include positioning(absolute, 3.5rem, null, null, null);
+      }
+      @include respondTo("mobile") {
+        @include positioning(absolute, 3.5rem, null, null, null);
+      }
+    }
+  }
+  .descriptionWrapper {
+    @include widthHeight(null, 10.56rem);
+    @include respondTo("tablet") {
+      @include widthHeight(null, auto);
+    }
+    @include respondTo("mobile") {
+      @include widthHeight(null, 7.5rem);
+    }
+    .description {
+      color: $silver;
+    }
+  }
+}

@@ -1,0 +1,45 @@
+@import "@/styles/colors";
+@import "@/styles/mixins";
+.componentWrapper {
+  @include flexBox(center, null, row, 0.75rem);
+  @include widthHeight(max-content);
+  background: $black-russian;
+  @include border($black-russian);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  .info {
+    display: inline-block;
+    color: $pale-grey;
+  }
+}
+.customCheckbox {
+  appearance: none;
+  -webkit-appearance: none;
+  outline: none;
+  min-height: unset !important;
+  padding: unset !important;
+  @include widthHeight(1rem !important, 1rem !important);
+  @include border($white !important, 0.063rem !important, solid !important);
+  border-radius: 0.3125rem;
+  position: relative;
+  cursor: pointer;
+  background: transparent !important;
+}
+.customCheckbox:checked {
+  background-color: transparent;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    @include widthHeight(0.3125rem, 0.625rem);
+    @include border($white, 0.125rem);
+    border-width: 0 0.125rem 0.125rem 0;
+    background-color: transparent;
+  }
+}
+.customContainerClass {
+  @include widthHeight(1rem, 1rem);
+  @include flexBox(center, flex-start);
+}
